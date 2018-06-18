@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#dashboard{
+    border: 1px solid red;
+}
+.menu-top{
+    border: 1px solid red;
+    height: 50px;
+}
+.menu-left{
+    border: 1px solid yellow;
+    height: 100%;
+}
+.main-content{
+    position: relative;
+    border: 1px solid green;
+    height: 1000px;
+}   
