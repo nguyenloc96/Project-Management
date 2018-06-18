@@ -1,14 +1,88 @@
-<div id="dashboard">
-    <div class="row menu-top">
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" routerLink="/my-dashboard"> Project Management </a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" routerLink="/my-dashboard">
+                    <i class="fas fa-tachometer-alt fa-fw"></i>
+                    <span class="nav-link-text"> &nbsp; My Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Create project">
+                <a class="nav-link" routerLink="/create-project">
+                    <i class="fas fa-plus-square fa-fw"></i>
+                    <span class="nav-link-text"> &nbsp; Create Project</span>
+                </a>
+            </li>
+            <li class="nav-item" id="create-note" data-toggle="tooltip" data-placement="right" title="Create notes">
+                <a class="nav-link" routerLink="/create-note">
+                    <i class="fas fa-notes-medical fa-fw"></i>
+                    <span class="nav-link-text"> &nbsp; Create Notes</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add user to the project">
+                <a class="nav-link" routerLink="/add-user">
+                    <i class="fas fa-address-card fa-fw"></i>
+                    <span class="nav-link-text"> &nbsp; Add user to the project</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown" id="show-messages" title="Show messages">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-envelope"></i>
+                    <span class="indicator text-primary d-none d-lg-block">
+                        <i class="fa fa-fw fa-circle"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item dropdown" id="show-notifications" title="Show notifications">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-bell"></i>
+                    <span class="indicator text-warning d-none d-lg-block">
+                        <i class="fa fa-fw fa-circle"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Search for...">
+                        <span class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </li>
+            <li class="nav-item" title="Logout">
+                <a class="nav-link" data-toggle="modal" data-target="#modalLogout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="row main">
-        <div class="col-3 menu-left">
-
-        </div>
-        <div class="col-9 main-content">
-    
+</nav>
+<!-- Logout Modal-->
+<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="logout" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logout">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="/login">Logout</a>
+            </div>
         </div>
     </div>
-    
 </div>
