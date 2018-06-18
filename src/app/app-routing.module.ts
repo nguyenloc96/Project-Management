@@ -6,6 +6,8 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { CreateNoteComponent } from './create-note/create-note.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { ShowProjectComponent } from './show-project/show-project.component';
+import { ShowUserComponent } from './show-user/show-user.component';
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
     { path: 'create-project', component: CreateProjectComponent },
     { path: 'create-note', component: CreateNoteComponent },
     { path: 'add-user', component: AddUserComponent },
+    { path: 'show-project', component: ShowProjectComponent },
+    { path: 'show-user', component: ShowUserComponent },
 ];
 @NgModule({
     exports: [ RouterModule ],
