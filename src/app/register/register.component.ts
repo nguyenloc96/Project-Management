@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
     selector: 'app-register',
@@ -6,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    
-    constructor() { }
+    constructor(private appService: AppService) { }
+    ngOnInit() {}
 
-    ngOnInit() {
-    }
     onSubmit(formRegister){
-        console.log(formRegister.value);
+        this.appService.sendRegister(formRegister.value)
+        .then(result => {
+            console.log(result);
+            if(result.status == 'success'){}
+        })
+        .catch(error => console.log(error))
     }
 }
