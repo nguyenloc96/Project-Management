@@ -5,36 +5,104 @@
                 Register an Account
             </div>
             <div class="card-body">
-                <form>
+                <form #formRegister="ngForm" (ngSubmit)="onSubmit(formRegister);">
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-6">
                                 <label for="first-Name">First name</label>
-                                <input class="form-control" id="first-Name" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                                <input 
+                                    class="form-control" 
+                                    id="first-Name" type="text" 
+                                    placeholder="Enter first name"
+                                    name="firstName"
+                                    #txtFirstName="ngModel"
+                                    ngModel
+                                    required
+                                >
+                                <span *ngIf="txtFirstName.touched && txtFirstName.errors?.required" class="text-danger">
+                                    First Name is required.
+                                </span>
                             </div>
                             <div class="col-md-6">
                                 <label for="last-Name">Last name</label>
-                                <input class="form-control" id="last-Name" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                                <input 
+                                    class="form-control" 
+                                    id="last-Name" type="text" 
+                                    placeholder="Enter last name"
+                                    name="lastName"
+                                    #txtLastName="ngModel"
+                                    ngModel
+                                    required
+                                >
+                                <span *ngIf="txtLastName.touched && txtLastName.errors?.required" class="text-danger">
+                                    First Name is required.
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="address-Email">Email address</label>
-                        <input class="form-control" id="address-Email" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input 
+                            class="form-control" 
+                            id="email" type="email" 
+                            placeholder="Enter email"
+                            name="email"
+                            #txtEmail="ngModel"
+                            ngModel
+                            required
+                            email
+                        >
+                        <span *ngIf="txtEmail.touched && txtEmail.errors?.required" class="text-danger">
+                            Email is required.
+                        </span>
+                        <span *ngIf="txtEmail.touched && txtEmail.errors?.email" class="text-danger">
+                            Email is not valid.
+                        </span>
                     </div>
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-6">
                                 <label for="password">Password</label>
-                                <input class="form-control" id="password" type="password" placeholder="Password">
+                                <input 
+                                    class="form-control" 
+                                    id="password" type="password" 
+                                    placeholder="Password"  
+                                    name="password"
+                                    #txtPassword="ngModel"
+                                    ngModel
+                                    required
+                                >
+                                <span *ngIf="txtPassword.touched && txtPassword.errors?.required" class="text-danger">
+                                    Password is required.
+                                </span>
                             </div>
                             <div class="col-md-6">
                                 <label for="confirm-Password">Confirm password</label>
-                                <input class="form-control" id="confirm-Password" type="password" placeholder="Confirm password">
+                                <input 
+                                    class="form-control" 
+                                    id="confirm-password" type="password" 
+                                    placeholder="Password"  
+                                    name="confirmPassword"
+                                    #txtConfirmPassword="ngModel"
+                                    ngModel
+                                    required
+                                >
+                                <span *ngIf="txtConfirmPassword.touched && txtConfirmPassword.errors?.required" class="text-danger">
+                                    Confirm Password is required.
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-primary btn-block" routerLink="/login">Register</a>
+                    <p *ngIf="(txtPassword.value != txtConfirmPassword.value)&&(txtConfirmPassword.touched||txtPassword.touched)" class="text-danger">
+                        Please enter your password.
+                    </p>
+                    <button 
+                        class="btn btn-primary btn-block" 
+                        [disabled]="formRegister.invalid || (txtPassword.value != txtConfirmPassword.value)"
+                        routerLink="/login"
+                    >
+                        Register
+                    </button>
                 </form>
                 <div class="text-center">
                     <a class="d-block small mt-3" routerLink="/login"> Cannel </a>

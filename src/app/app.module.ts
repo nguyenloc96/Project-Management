@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -12,7 +12,7 @@ import { CreateNoteComponent } from './create-note/create-note.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { ShowProjectComponent } from './show-project/show-project.component';
 import { ShowUserComponent } from './show-user/show-user.component';
-
+import { HttpModule} from '@angular/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,9 @@ import { ShowUserComponent } from './show-user/show-user.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

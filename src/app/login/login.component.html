@@ -5,16 +5,47 @@
                 Login with account
             </div>
             <div class="card-body">
-                <form>
+                <form #formLogin="ngForm" (ngSubmit)="onSubmit(formLogin);">
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input class="form-control" id="email" type="email" placeholder="Enter email">
+                        <input 
+                            class="form-control" 
+                            id="email" type="email" 
+                            placeholder="Enter email"
+                            name="email"
+                            #txtEmail="ngModel"
+                            ngModel
+                            required
+                            email
+                        >
                     </div>
+                    <p *ngIf="txtEmail.touched && txtEmail.errors?.required" class="text-danger">
+                        Email is required.
+                    </p>
+                    <p *ngIf="txtEmail.touched && txtEmail.errors?.email" class="text-danger">
+                        Email is not valid.
+                    </p>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input class="form-control" id="password" type="password" placeholder="Password">
+                        <input 
+                            class="form-control" 
+                            id="password" type="password" 
+                            placeholder="Password"  
+                            name="password"
+                            #txtPassword="ngModel"
+                            ngModel
+                            required
+                        >
                     </div>
-                    <a class="btn btn-primary btn-block" routerLink="/my-dashboard">Login</a>
+                    <p *ngIf="txtPassword.touched && txtPassword.errors?.required" class="text-danger">
+                        Password is required.
+                    </p>
+                    <button 
+                        class="btn btn-primary btn-block"
+                        routerLink="/my-dashboard"
+                        [disabled]="formLogin.invalid"
+                    >Login</button>
+                   
                 </form>
                 <div class="text-center">
                     <a class="d-block small mt-4" routerLink="/register">Register an Account</a>
