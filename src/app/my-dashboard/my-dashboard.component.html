@@ -21,12 +21,39 @@
             </div>
             <div class="card-body">
                 <div class="row justify-content-around">
-                    <div class="col-6 text-center">
-                        <a class="btn btn-primary" routerLink="/show-project">Show all project</a>
-                    </div>
-                    <div class="col-6 text-center">
-                        <a class="btn btn-primary" routerLink="/show-user">Show all user</a>
-                    </div>
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <td scope="col">#</td>
+                                <td scope="col">Name Project</td>
+                                <td> Choose button </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let el of listProjects">
+                                <td id="{{el.project_id}}"></td>
+                                <td>{{el.project_name}}</td>
+                                <td>
+                                    <div class="row justify-content-center">
+                                        <div class="col-6 text-right">
+                                            <button 
+                                                class="btn btn-success" 
+                                                type="button"
+                                                routerLink="/show-project"
+                                            >View project information</button>
+                                        </div>
+                                        <div class="col-6 text-left">
+                                            <button 
+                                                class="btn btn-primary" 
+                                                type="button"
+                                                routerLink="/add-user"
+                                            >Add user to the project</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

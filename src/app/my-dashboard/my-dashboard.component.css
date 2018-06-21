@@ -56,3 +56,21 @@ body.sticky-footer .content-wrapper {
     min-height: calc(100vh - 56px);
     margin-top: 4.3rem;
 }
+
+table tbody {
+    counter-reset: no;
+}
+table tbody tr{
+    counter-increment: no;
+}
+table tbody tr td:first-child:before{ 
+    content: counter(no);
+}
+table thead {
+    text-align: center;
+    vertical-align: middle;
+}
+table tbody tr td{
+    text-align: center;
+    vertical-align: middle;
+}

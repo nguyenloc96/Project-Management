@@ -22,31 +22,62 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                        
-                            <div class="form-control-sm">
-                                <label for="select-project">Select the project name:</label>
-                                <select class="custom-select" id="select-project">
-                                    <option value="1" checked>Project 1</option>
-                                    <option value="2">Project 2</option>
-                                    <option value="3">Project 3</option>
-                                </select>
+
+                        <div class="form-control-sm">
+                            <label for="select-project">Select the project name:</label>
+                            <select class="custom-select">
+
+                            </select>
+                        </div>
+                        <div class="form-control-sm">
+                            <label for="name-user">Choose user: </label>
+                            <input 
+                                class="form-control" id="name-user" 
+                                placeholder="Choose name user"
+                                data-toggle="modal" data-target="#modal-user"
+                            >
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered table-hover table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <td scope="col">#</td>
+                                                        <td scope="col">Name User</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor = "let el of listProjects">
+                                                        <td id="{{el.project_id}}"></td>
+                                                        <td>{{el.project_name}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Selected</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-control-sm">
-                                <label for="select-project">Select user name:</label>
-                                <select class="custom-select" id="select-project">
-                                    <option value="1" checked>User 1</option>
-                                    <option value="2">User 2</option>
-                                    <option value="3">User 3</option>
-                                </select>
-                            </div>
-                        
-                       
-                            <div class="form-control-sm">
-                                <label for="role">Roles</label>
-                                <input class="form-control" id="role" placeholder="Enter role">
-                            </div>
-                           
-                        
+                        </div>
+
+
+                        <div class="form-control-sm">
+                            <label for="role">Roles</label>
+                            <input class="form-control" id="role" placeholder="Enter role">
+                        </div>
+
+
                     </div>
                 </form>
                 <div class="container">

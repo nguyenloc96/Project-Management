@@ -28,4 +28,20 @@ export class AppService {
         .toPromise()
         .then(res => res.json())
     }
+
+    sendGetProjects(){
+        const url = URL + 'get-project';
+        const body = '';
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    sendGetUsers(){
+        const url = URL + 'get-user';
+        const body = '';
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
 }

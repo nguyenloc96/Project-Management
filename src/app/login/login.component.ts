@@ -16,6 +16,12 @@ export class LoginComponent implements OnInit {
         this.appService.sendLogin(formLogin.value)
         .then(result => {
             console.log(result);
+            if(result.status =='success'){
+                alert('Đăng nhập thành công.');
+            }
+            else{
+                alert('Đăng nhập thất bại.');
+            }
         })
         .catch(error => console.log(error))
     }
