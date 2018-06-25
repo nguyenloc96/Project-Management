@@ -8,6 +8,8 @@ import { CreateNoteComponent } from './create-note/create-note.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ShowProjectComponent } from './show-project/show-project.component';
 import { ShowUserComponent } from './show-user/show-user.component';
+
+
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },

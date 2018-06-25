@@ -12,27 +12,27 @@ import { CreateNoteComponent } from './create-note/create-note.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { ShowProjectComponent } from './show-project/show-project.component';
 import { ShowUserComponent } from './show-user/show-user.component';
-import { HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    CreateProjectComponent,
-    DashboardComponent,
-    AddUserComponent,
-    CreateNoteComponent,
-    MyDashboardComponent,
-    ShowProjectComponent,
-    ShowUserComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        RegisterComponent,
+        CreateProjectComponent,
+        DashboardComponent,
+        AddUserComponent,
+        CreateNoteComponent,
+        MyDashboardComponent,
+        ShowProjectComponent,
+        ShowUserComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpModule,
+        FormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

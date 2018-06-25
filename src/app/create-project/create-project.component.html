@@ -20,26 +20,78 @@
                 <h3>Create New Project</h3>
             </div>
             <div class="card-body">
-                <form>
+                <form #formCreateProject="ngForm" (ngSubmit)="onSubmit(formCreateProject);">
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-6 form-control-sm">
                                 <label for="name-project">Name Project</label>
-                                <input class="form-control" id="name-project" placeholder="Enter name project">
+                                <input 
+                                    class="form-control" 
+                                    id="name-project" 
+                                    placeholder="Enter name project"
+                                    name="name-project"
+                                    #txtNameProject="ngModel"
+                                    ngModel
+                                    required
+                                >
+                                <p  *ngIf="txtNameProject.touched && txtNameProject.errors?.required" 
+                                    class="text-danger"
+                                >
+                                    Name Project is required.
+                                </p>
                             </div>
                             <div class="col-md-6 form-control-sm">
                                 <label for="name-PM">Name PM</label>
-                                <input class="form-control" id="name-PM" placeholder="Name PM">
+                                <input 
+                                    class="form-control" 
+                                    id="name-PM" 
+                                    placeholder="Name PM"
+                                    name="name-PM"
+                                    #txtNamePM="ngModel"
+                                    ngModel
+                                    required
+                                >
+                                <p  *ngIf="txtNamePM.touched && txtNamePM.errors?.required" 
+                                    class="text-danger"
+                                >
+                                    Name PM is required.
+                                </p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-6 form-control-sm">
                                 <label for="name-customer">Name Customer</label>
-                                <input class="form-control" id="name-customer" placeholder="Name customer">
+                                <input 
+                                    class="form-control" 
+                                    id="name-customer" 
+                                    placeholder="Name customer"
+                                    name="name-customer"
+                                    #txtNameCustomer="ngModel"
+                                    ngModel
+                                    required
+                                >
+                                <p  *ngIf="txtNameCustomer.touched && txtNameCustomer.errors?.required" 
+                                    class="text-danger"
+                                >
+                                    Name Customer is required.
+                                </p>
                             </div>
                             <div class="col-md-6 form-control-sm">
                                 <label for="name-technology">Name Technology</label>
-                                <input class="form-control" id="name-technology" placeholder="Name technology">
+                                <input 
+                                    class="form-control" 
+                                    id="name-technology" 
+                                    placeholder="Name technology"
+                                    name="name-technology"
+                                    #txtNameTechnology="ngModel"
+                                    ngModel
+                                    required
+                                >
+                                <p  *ngIf="txtNameTechnology.touched && txtNameTechnology.errors?.required" 
+                                    class="text-danger"
+                                >
+                                    Name Technology is required.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -48,18 +100,20 @@
                         <textarea class="form-control" id="discription">
                         </textarea>
                     </div>
-                </form>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-6 text-right">
-                            <a class="btn btn-secondary" routerLink="/my-dashboard">Cancel</a>
-                        </div>
-                        <div class="col-6 text-left">
-                            <button class="btn btn-primary" type="button">Create</button>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-6 text-right">
+                                <a class="btn btn-secondary" routerLink="/my-dashboard">Cancel</a>
+                            </div>
+                            <div class="col-6 text-left">
+                                <button 
+                                    class="btn btn-primary" type="submit"
+                                    [disabled]="formCreateProject.invalid"
+                                >Create</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
+                </form>
             </div>
         </div>
     </div>

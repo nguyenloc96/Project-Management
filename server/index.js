@@ -10,41 +10,44 @@ app.use((req, res, next)=>{
 
 app.get('/', (req, res) => res.send('Server running...........'));
 
-EMAIL = 'a@gmail.com';
-PASSWORD = '123';
+EMAIL = 'user@gmail.com';
+PASSWORD = '123456';
+
 app.post('/login', jsonParser ,(req, res) =>{
-    
-    console.log(req.body.email);
-    console.log(req.body.password);
     if(req.body.email == EMAIL && req.body.password == PASSWORD){
         res.send({
-            status: 'success',
-            token: 'no null'
+            "token": 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mjk3MjI1NjMsInVzZXJuYW1lIjoidXNlckBnbWFpbC5jb20ifQ._XIAFHAuQJwG6IyOQmVilPWXNv8yYP30szQ-urK76so',
+            "profile": {
+                "id": 2,
+                "password": "123456",
+                "username": "user@gmail.com"
+            }        
         });
     }
     else{
         res.send({
-            status: 'fail',
-            token: 'null'
+            "token": null
         });
     }
 })
 
 app.post('/register', jsonParser ,(req, res) =>{
     res.send({
-        status: 'success'
+        status: 'true'
     });
 })
 
 app.post('/create-project', jsonParser ,(req, res) =>{
     res.send({
-        status: 'success',
-        project_id: '',
-        project_name: '',
-        pm_name: '',
-        customer_name: '',
-        technology: '',
-        discription: ''
+        "status": 'true',
+        "projectInfo": {
+            "project_id": 3,
+            "customer": "Nam Dep Trai",
+            "description": "Nam dep trai vl",
+            "pm": "Chuyen suc vat",
+            "project_name": "Tao suc vat",
+            "technology": "java"
+        }
     });
 })
 
@@ -62,7 +65,9 @@ const listProject = [
 ];
 
 app.post('/get-project', jsonParser ,(req, res) =>{
-    res.send(listProject);
+    res.send(
+        listProject
+    );
 })
 
 const listUser = [
@@ -84,13 +89,13 @@ app.post('/get-user', jsonParser ,(req, res) =>{
 
 app.post('/add-user', jsonParser ,(req, res) =>{
     res.send({
-        status: 'success',
+        status: 'true',
     });
 })
 
-app.post('/user/log-time-sheet', jsonParser ,(req, res) =>{
+app.post('/log-time-sheet', jsonParser ,(req, res) =>{
     res.send({
-        status: 'success',
+        status: 'true'
     });
 })
 
@@ -115,5 +120,6 @@ app.post('/user-project', jsonParser ,(req, res) =>{
         {project_id: '2' ,project_name: 'Project Name 2'}
     ]);
 })
+
 
 app.listen(3000, () => console.log('Server is running.......'));

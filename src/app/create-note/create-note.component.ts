@@ -1,15 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
+import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-note',
-  templateUrl: './create-note.component.html',
-  styleUrls: ['./create-note.component.css']
+    selector: 'app-create-note',
+    templateUrl: './create-note.component.html',
+    styleUrls: ['./create-note.component.css'],
+    providers: [AppService]
 })
 export class CreateNoteComponent implements OnInit {
+    @ViewChild(LoginComponent)
+    loginChild: LoginComponent;
+    listProjects = [];
+    listJobs = ['task', 'fix bug', 'other'];
+    selectProject: Number;
+    selectJob: String;
 
-  constructor() { }
+    constructor(
+        private appService: AppService,
+        private router: Router 
+    ) { 
+        this.appService.sendGetProjects()
+        .then(listProject => {
+            this.listProjects = listProject;
+        })
+        .catch(error => console.log(error))
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.selectProject = 1;
+        this.selectJob = 'task';
+    }
 
+    onSubmit(form) {
+        console.log(form.value);
+        this.appService.sendLogTimeSheet(form.value)
+            .then(result => {
+                if (result.status == 'true') {
+                    alert('Bạn đã tạo chú thích thành công.');
+                    this.router.navigate(['my-dashboard']);
+                }
+                else {
+                    alert('Tạo chú thích không thành công.');
+                }
+            })
+            .catch(error => console.log(error))
+    }
 }

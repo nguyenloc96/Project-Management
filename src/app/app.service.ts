@@ -44,4 +44,28 @@ export class AppService {
         .toPromise()
         .then(res => res.json())
     }
+
+    sendCreateProject(value){
+        const url = URL + 'create-project';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    sendLogTimeSheet(value){
+        const url = URL + 'log-time-sheet';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    sendAddUser(value){
+        const url = URL + 'add-user';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
 }

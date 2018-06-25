@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-add-user',
@@ -9,25 +10,43 @@ import { AppService } from '../app.service';
 export class AddUserComponent implements OnInit {
     listProjects = [];
     listUsers = [];
-    constructor(private appService: AppService) {
+    constructor(
+        private appService: AppService,
+        private router: Router
+    ) {
         this.appService.sendGetProjects()
             .then(listProject => {
-                console.log(listProject);
                 this.listProjects = listProject;
             })
             .catch(error => console.log(error))
 
         this.appService.sendGetUsers()
             .then(listUser => {
-                console.log(listUser);
                 this.listUsers = listUser;
             })
             .catch(error => console.log(error))
     }
     
-    selectedProject = this.listProjects[0];
+    selectProject: number;
+    selectUser: number;
 
     ngOnInit() {
+        this.selectProject = 1;
+        this.selectUser = 1;
     }
 
+    onSubmit(form){
+        console.log(form.value);
+        this.appService.sendAddUser(form.value)
+            .then(result => {
+                if (result.status == 'true') {
+                    alert('Bạn đã thêm user vào project thành công.');
+                    this.router.navigate(['my-dashboard']);
+                }
+                else {
+                    alert('Thêm thất bại.');
+                }
+            })
+            .catch(error => console.log(error))
+    }
 }

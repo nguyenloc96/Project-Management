@@ -14,17 +14,20 @@
                             placeholder="Enter email"
                             name="email"
                             #txtEmail="ngModel"
-                            ngModel
+                            [(ngModel)]="email"
                             required
                             email
                         >
                     </div>
-                    <p *ngIf="txtEmail.touched && txtEmail.errors?.required" class="text-danger">
-                        Email is required.
-                    </p>
-                    <p *ngIf="txtEmail.touched && txtEmail.errors?.email" class="text-danger">
-                        Email is not valid.
-                    </p>
+                    <div>
+                        <p *ngIf="txtEmail.touched && txtEmail.errors?.required" class="text-danger">
+                            Email is required.
+                        </p>
+                        <p *ngIf="txtEmail.touched && txtEmail.errors?.email" class="text-danger">
+                            Email is not valid.
+                        </p>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input 
@@ -33,7 +36,7 @@
                             placeholder="Password"  
                             name="password"
                             #txtPassword="ngModel"
-                            ngModel
+                            [(ngModel)]="password"
                             required
                         >
                     </div>
