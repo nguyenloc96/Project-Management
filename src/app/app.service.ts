@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-const URL = '192.168.137.1:8080/';
+const URL = 'http://localhost:3000/';
 const headers = new Headers({ 'Content-Type': 'application/json' });
 
 @Injectable({

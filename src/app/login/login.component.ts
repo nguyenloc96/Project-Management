@@ -10,11 +10,14 @@ import { AppService } from '../app.service';
 })
 export class LoginComponent implements OnInit {
     token = '';
-    id = 0;
+    id:number;
+    username ='';
+
     constructor(
         private appService: AppService,
         private router: Router
     ) { }
+
     ngOnInit() {}
 
     onSubmit(formLogin){
@@ -24,7 +27,8 @@ export class LoginComponent implements OnInit {
             if(result.token != null){
                 this.token = result.token;
                 this.id = result.profile.id;
-                console.log(this.token, this.id);
+                this.username = result.profile.username;
+                console.log(this.token, this.id, this.username);
                 alert('Đăng nhập thành công.');
                 this.router.navigate(['my-dashboard']);
             }

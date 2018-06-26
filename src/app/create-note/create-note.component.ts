@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class CreateNoteComponent implements OnInit {
     @ViewChild(LoginComponent)
     loginChild: LoginComponent;
+
     listProjects = [];
     listJobs = ['task', 'fix bug', 'other'];
     selectProject: Number;
@@ -38,6 +39,7 @@ export class CreateNoteComponent implements OnInit {
 
     onSubmit(form) {
         console.log(form.value);
+        console.log(this.loginChild.id);
         this.appService.sendLogTimeSheet(form.value)
             .then(result => {
                 if (result.status == 'true') {

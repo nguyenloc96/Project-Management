@@ -45,7 +45,7 @@ app.post('/create-project', jsonParser ,(req, res) =>{
             "customer": "Nam Dep Trai",
             "description": "Nam dep trai vl",
             "pm": "Chuyen suc vat",
-            "project_name": "Tao suc vat",
+            "projectName": "Tao suc vat",
             "technology": "java"
         }
     });
@@ -57,7 +57,7 @@ const listProject = {
         "customer": "Nam Dep Trai",
         "description": "Nam dep trai vl",
         "pm": "Chuyen suc vat",
-        "project_name": "Project Name 1",
+        "projectName": "Project Name 1",
         "technology": "java"
     },
     "2": {
@@ -65,7 +65,7 @@ const listProject = {
         "customer": "Nam Dep Trai",
         "description": "Nam dep trai vl",
         "pm": "Chuyen suc vat",
-        "project_name": "Project Name 2",
+        "projectName": "Project Name 2",
         "technology": "java"
     },
     "3": {
@@ -73,7 +73,7 @@ const listProject = {
         "customer": "Nam Dep Trai",
         "description": "Nam dep trai vl",
         "pm": "Chuyen suc vat",
-        "project_name": "Project Name 3",
+        "projectName": "Project Name 3",
         "technology": "java"
     },
     "4": {
@@ -81,7 +81,7 @@ const listProject = {
         "customer": "Nam Dep Trai",
         "description": "Nam dep trai vl",
         "pm": "Chuyen suc vat",
-        "project_name": "Project Name 4",
+        "projectName": "Project Name 4",
         "technology": "java"
     },
     "5": {
@@ -89,7 +89,7 @@ const listProject = {
         "customer": "Nam Dep Trai",
         "description": "Nam dep trai vl",
         "pm": "Chuyen suc vat",
-        "project_name": "Project Name 5",
+        "projectName": "Project Name 5",
         "technology": "java"
     },
     "6": {
@@ -97,7 +97,7 @@ const listProject = {
         "customer": "Nam Dep Trai",
         "description": "Nam dep trai vl",
         "pm": "Chuyen suc vat",
-        "project_name": "Project Name 6",
+        "projectName": "Project Name 6",
         "technology": "java"
     }
 };

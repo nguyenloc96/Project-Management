@@ -19,10 +19,11 @@ export class CreateProjectComponent implements OnInit {
     }
 
     onSubmit(form){
+        console.log(form.value);
         this.appService.sendCreateProject(form.value)
         .then(result => {
             console.log(result);
-            if(result.status =='true'){
+            if(result.status == true){
                 alert('Bạn đã tạo mới project thành công.');
                 this.router.navigate(['add-user']);
             }
