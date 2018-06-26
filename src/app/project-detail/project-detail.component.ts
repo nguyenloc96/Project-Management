@@ -11,15 +11,19 @@ import { AppService } from '../app.service';
 export class ProjectDetailComponent implements OnInit {
 
     constructor(
-        private router: ActivatedRoute,
+        private route: ActivatedRoute,
         private appService: AppService
     ) { 
+        const id = {
+            "project_id":+this.route.snapshot.paramMap.get('id')
+        };
         
+        this.appService.sendProjectDetail(id)
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => console.log(error))
     }
 
-    ngOnInit() {
-        this.router.params.subscribe((params) => {
-
-        });
-    }
+    ngOnInit() {}
 }

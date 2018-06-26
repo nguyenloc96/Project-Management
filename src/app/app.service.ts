@@ -66,5 +66,12 @@ export class AppService {
         .toPromise()
         .then(res => res.json())
     }
-    
+
+    sendProjectDetail(value){
+        const url = URL + 'project-detail';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
 }

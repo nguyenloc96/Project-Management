@@ -137,20 +137,7 @@ app.post('/log-time-sheet', jsonParser ,(req, res) =>{
     });
 })
 
-app.post('/project-detail', jsonParser ,(req, res) =>{
-    res.send({
-        project_id: '',
-        project_name: '',
-        pm_name: '',
-        customer_name: '',
-        technology: '',
-        discription: '',
-        list_user:  [
-            {user_name: ''},
-            {user_name: ''}
-        ]
-    });
-})
+
 
 app.post('/user-project', jsonParser ,(req, res) =>{
     res.send([
@@ -159,7 +146,7 @@ app.post('/user-project', jsonParser ,(req, res) =>{
     ]);
 })
 
-app.post('/project-detail/project_id', jsonParser ,(req, res) =>{
+app.post('/project-detail', jsonParser ,(req, res) =>{
     res.send({
         status: 'true',
     });
