@@ -13,6 +13,7 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { ShowProjectComponent } from './show-project/show-project.component';
 import { ShowUserComponent } from './show-user/show-user.component';
 import { HttpModule } from '@angular/http';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -24,7 +25,8 @@ import { HttpModule } from '@angular/http';
         CreateNoteComponent,
         MyDashboardComponent,
         ShowProjectComponent,
-        ShowUserComponent
+        ShowUserComponent,
+        ProjectDetailComponent
     ],
     imports: [
         BrowserModule,

@@ -12,8 +12,10 @@ export class MyDashboardComponent implements OnInit {
     constructor(private appService: AppService) { 
         this.appService.sendGetProjects()
         .then(result => {
-            console.log(result);
-            this.listProjects = result;
+            var arr = Object.keys(result).map(function(key) {
+                return [Number(key), result[key]];
+            });
+            this.listProjects = arr;
         })
         .catch(error => console.log(error))
     }

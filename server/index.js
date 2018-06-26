@@ -51,39 +51,77 @@ app.post('/create-project', jsonParser ,(req, res) =>{
     });
 })
 
-const listProject = [
-    {project_name: 'Project Name 1', project_id: '1'},
-    {project_name: 'Project Name 2', project_id: '2'},
-    {project_name: 'Project Name 3', project_id: '3'},
-    {project_name: 'Project Name 4', project_id: '4'},
-    {project_name: 'Project Name 5', project_id: '5'},
-    {project_name: 'Project Name 6', project_id: '6'},
-    {project_name: 'Project Name 7', project_id: '7'},
-    {project_name: 'Project Name 8', project_id: '8'},
-    {project_name: 'Project Name 9', project_id: '9'},
-    {project_name: 'Project Name 10', project_id: '10'}
-];
+const listProject = {
+    "1": {
+        "project_id": 1,
+        "customer": "Nam Dep Trai",
+        "description": "Nam dep trai vl",
+        "pm": "Chuyen suc vat",
+        "project_name": "Project Name 1",
+        "technology": "java"
+    },
+    "2": {
+        "project_id": 2,
+        "customer": "Nam Dep Trai",
+        "description": "Nam dep trai vl",
+        "pm": "Chuyen suc vat",
+        "project_name": "Project Name 2",
+        "technology": "java"
+    },
+    "3": {
+        "project_id": 3,
+        "customer": "Nam Dep Trai",
+        "description": "Nam dep trai vl",
+        "pm": "Chuyen suc vat",
+        "project_name": "Project Name 3",
+        "technology": "java"
+    },
+    "4": {
+        "project_id": 4,
+        "customer": "Nam Dep Trai",
+        "description": "Nam dep trai vl",
+        "pm": "Chuyen suc vat",
+        "project_name": "Project Name 4",
+        "technology": "java"
+    },
+    "5": {
+        "project_id": 5,
+        "customer": "Nam Dep Trai",
+        "description": "Nam dep trai vl",
+        "pm": "Chuyen suc vat",
+        "project_name": "Project Name 5",
+        "technology": "java"
+    },
+    "6": {
+        "project_id": 6,
+        "customer": "Nam Dep Trai",
+        "description": "Nam dep trai vl",
+        "pm": "Chuyen suc vat",
+        "project_name": "Project Name 6",
+        "technology": "java"
+    }
+};
 
-app.post('/get-project', jsonParser ,(req, res) =>{
+app.get('/get-projects', jsonParser ,(req, res) =>{
     res.send(
         listProject
     );
 })
 
 const listUser = [
-    {user_name: 'User Name 1', user_id: '1'},
-    {user_name: 'User Name 2', user_id: '2'},
-    {user_name: 'User Name 3', user_id: '3'},
-    {user_name: 'User Name 4', user_id: '4'},
-    {user_name: 'User Name 5', user_id: '5'},
-    {user_name: 'User Name 6', user_id: '6'},
-    {user_name: 'User Name 7', user_id: '7'},
-    {user_name: 'User Name 8', user_id: '8'},
-    {user_name: 'User Name 9', user_id: '9'},
-    {user_name: 'User Name 10', user_id: '10'}
+    {email: 'user1@gmail.com', id: '1'},
+    {email: 'user2@gmail.com', id: '2'},
+    {email: 'user3@gmail.com', id: '3'},
+    {email: 'user4@gmail.com', id: '4'},
+    {email: 'user5@gmail.com', id: '5'},
+    {email: 'user6@gmail.com', id: '6'},
+    {email: 'user7@gmail.com', id: '7'},
+    {email: 'user8@gmail.com', id: '8'},
+    {email: 'user9@gmail.com', id: '9'},
+    {email: 'user10@gmail.com', id: '10'}
 ];
 
-app.post('/get-user', jsonParser ,(req, res) =>{
+app.get('/get-users', jsonParser ,(req, res) =>{
     res.send(listUser);
 })
 
@@ -121,5 +159,10 @@ app.post('/user-project', jsonParser ,(req, res) =>{
     ]);
 })
 
+app.post('/project-detail/project_id', jsonParser ,(req, res) =>{
+    res.send({
+        status: 'true',
+    });
+})
 
 app.listen(3000, () => console.log('Server is running.......'));

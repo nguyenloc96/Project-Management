@@ -8,7 +8,7 @@ import { CreateNoteComponent } from './create-note/create-note.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ShowProjectComponent } from './show-project/show-project.component';
 import { ShowUserComponent } from './show-user/show-user.component';
-
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,6 +20,7 @@ const routes: Routes = [
     { path: 'add-user', component: AddUserComponent },
     { path: 'show-project', component: ShowProjectComponent },
     { path: 'show-user', component: ShowUserComponent },
+    { path: 'project-detail/:id', component: ProjectDetailComponent }
 ];
 @NgModule({
     exports: [ RouterModule ],

@@ -28,29 +28,29 @@
                                 class="custom-select" 
                                 id="select-project"
                                 [(ngModel)]="selectProject" 
-                                name="project_id"
+                                name="project_ID"
                             >
                                 <option 
                                     *ngFor="let item of listProjects"
-                                    [value]="item.project_id"
+                                    [value]="item[1].project_id"
                                 >
-                                    {{item.project_name}}
+                                    {{item[1].project_name}}
                                 </option>
                             </select>
                         </div>
                         <div class="form-control-sm">
-                            <label for="name-user">Choose user: </label>
+                            <label for="name-user">Select user: </label>
                             <select 
                                 class="custom-select" 
                                 id="select-user"
                                 [(ngModel)]="selectUser" 
-                                name="user_id"
+                                name="user_ID"
                             >
                                 <option 
                                     *ngFor="let item of listUsers"
-                                    [value]="item.user_id"
+                                    [value]="item.id"
                                 >
-                                    {{item.user_name}}
+                                    {{item.email}}
                                 </option>
                             </select>
                         </div>

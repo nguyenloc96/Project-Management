@@ -36,9 +36,9 @@
                                 >
                                     <option 
                                         *ngFor="let item of listProjects"
-                                        [value]="item.project_id"
+                                        [value]="item[1].project_id"
                                     >
-                                        {{item.project_name}}
+                                        {{item[1].project_name}}
                                     </option>
                                 </select>
                             </div>

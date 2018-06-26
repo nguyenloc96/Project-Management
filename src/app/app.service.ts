@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-const URL = 'http://localhost:3000/';
+const URL = '192.168.137.1:8080/';
 const headers = new Headers({ 'Content-Type': 'application/json' });
 
 @Injectable({
@@ -30,17 +30,15 @@ export class AppService {
     }
 
     sendGetProjects(){
-        const url = URL + 'get-project';
-        const body = '';
-        return this.http.post(url, body, { headers })
+        const url = URL + 'get-projects';
+        return this.http.get(url, { headers })
         .toPromise()
         .then(res => res.json())
     }
 
     sendGetUsers(){
-        const url = URL + 'get-user';
-        const body = '';
-        return this.http.post(url, body, { headers })
+        const url = URL + 'get-users';
+        return this.http.get(url, { headers })
         .toPromise()
         .then(res => res.json())
     }
@@ -68,4 +66,5 @@ export class AppService {
         .toPromise()
         .then(res => res.json())
     }
+    
 }

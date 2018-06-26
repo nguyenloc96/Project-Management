@@ -1,0 +1,65 @@
+<app-dashboard></app-dashboard>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/my-dashboard">My Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/create-project"> Create Project</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/create-note">Create Notes</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a routerLink="/add-user">Add user to the project</a>
+            </li>
+        </ol>
+        <div class="card add-user">
+            <div class="card-header text-center">
+                <h3> Information Project </h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
+                    <thead class="text-center">
+                        <tr>
+                            <td scope="col">#</td>
+                            <td scope="col">Name Project</td>
+                            <td scope="col">Name PM</td>
+                            <td scope="col">Name Customer</td>
+                            <td scope="col">Name Technology</td>
+                            <td scope="col">Description</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" class="text-center"></td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>#nn</td>
+                            <td>!dd</td>
+                            <td class="text-center">
+                                <i class="fas fa-edit icon-edit text-primary"></i>
+                                <i class="fas fa-trash-alt icon-delete text-danger"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" class="text-center"></td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>#nn</td>
+                            <td>!dd</td>
+                            <td class="text-center">
+                                <i class="fas fa-edit icon-edit text-primary"></i>
+                                <i class="fas fa-trash-alt icon-delete text-danger"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

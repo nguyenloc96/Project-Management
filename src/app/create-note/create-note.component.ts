@@ -23,7 +23,10 @@ export class CreateNoteComponent implements OnInit {
     ) { 
         this.appService.sendGetProjects()
         .then(listProject => {
-            this.listProjects = listProject;
+            var arr = Object.keys(listProject).map(function(key) {
+                return [Number(key), listProject[key]];
+            });
+            this.listProjects = arr;
         })
         .catch(error => console.log(error))
     }
