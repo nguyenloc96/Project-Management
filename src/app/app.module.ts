@@ -14,6 +14,10 @@ import { ShowProjectComponent } from './show-project/show-project.component';
 import { ShowUserComponent } from './show-user/show-user.component';
 import { HttpModule } from '@angular/http';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { UserProjectsComponent } from './user/user-projects/user-projects.component';
+import { UserNotesComponent } from './user/user-notes/user-notes.component';
+import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
+import { UserCreateNoteComponent } from './user/user-create-note/user-create-note.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -26,7 +30,11 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
         MyDashboardComponent,
         ShowProjectComponent,
         ShowUserComponent,
-        ProjectDetailComponent
+        ProjectDetailComponent,
+        UserProjectsComponent,
+        UserNotesComponent,
+        UserDashboardComponent,
+        UserCreateNoteComponent
     ],
     imports: [
         BrowserModule,

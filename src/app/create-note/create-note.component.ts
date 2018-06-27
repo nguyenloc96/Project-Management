@@ -1,5 +1,4 @@
-import { Component, OnInit , ViewChild } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
+import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 
@@ -10,8 +9,6 @@ import { Router } from '@angular/router';
     providers: [AppService]
 })
 export class CreateNoteComponent implements OnInit {
-    @ViewChild(LoginComponent)
-    loginChild: LoginComponent;
 
     listProjects = [];
     listJobs = ['task', 'fix bug', 'other'];
@@ -38,13 +35,14 @@ export class CreateNoteComponent implements OnInit {
     }
 
     onSubmit(form) {
-        console.log(form.value);
-        console.log(this.loginChild.id);
-        this.appService.sendLogTimeSheet(form.value)
+        const dataRequest = form.value;
+        dataRequest.user_id = parseInt(localStorage.getItem('user_id'));
+        console.log(dataRequest);
+        this.appService.sendLogTimeSheet(dataRequest)
             .then(result => {
-                if (result.status == 'true') {
+                if (result.status == true) {
                     alert('Bạn đã tạo chú thích thành công.');
-                    this.router.navigate(['my-dashboard']);
+                    this.router.navigate(['user']);
                 }
                 else {
                     alert('Tạo chú thích không thành công.');

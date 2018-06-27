@@ -9,14 +9,12 @@ import { AppService } from '../app.service';
     providers: [AppService]
 })
 export class LoginComponent implements OnInit {
-    token = '';
-    id:number;
-    username ='';
-
     constructor(
         private appService: AppService,
         private router: Router
-    ) { }
+    ) { 
+        
+    }
 
     ngOnInit() {}
 
@@ -25,10 +23,10 @@ export class LoginComponent implements OnInit {
         .then(result => {
             console.log(result);
             if(result.token != null){
-                this.token = result.token;
-                this.id = result.profile.id;
-                this.username = result.profile.username;
-                console.log(this.token, this.id, this.username);
+                localStorage.setItem('token_user', result.token);
+                localStorage.setItem('user_id', result.profile.id + '');
+                localStorage.setItem('user_name', result.profile.username);
+                localStorage.setItem('role', result.profile.role);
                 alert('Đăng nhập thành công.');
                 this.router.navigate(['my-dashboard']);
             }

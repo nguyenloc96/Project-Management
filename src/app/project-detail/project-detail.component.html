@@ -23,26 +23,29 @@
                 <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
                     <thead class="text-center">
                         <tr>
-                            <td scope="col">#</td>
+                            <td scope="col">ID</td>
                             <td scope="col">Name Project</td>
                             <td scope="col">Name PM</td>
                             <td scope="col">Name Customer</td>
                             <td scope="col">Name Technology</td>
                             <td scope="col">Description</td>
-                            <td></td>
+                            <td scope="col">User in the project</td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row" class="text-center"></td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>#nn</td>
-                            <td>!dd</td>
-                            <td class="text-center">
-                                <i class="fas fa-edit icon-edit text-primary"></i>
-                                <i class="fas fa-trash-alt icon-delete text-danger"></i>
+                        <tr class="text-center">
+                            <td scope="row">{{projectDetail.id}}</td>
+                            <td>{{projectDetail.projectName}}</td>
+                            <td>{{projectDetail.pm}}</td>
+                            <td>{{projectDetail.customer}}</td>
+                            <td>{{projectDetail.technology}}</td>
+                            <td>{{projectDetail.description}}</td>
+                            <td>
+                                <!--<i class="fas fa-edit icon-edit text-primary"></i>
+                                <i class="fas fa-trash-alt icon-delete text-danger"></i>-->
+                                <ul *ngFor="let user of listUser">
+                                    <li>{{user.username}}</li>
+                                </ul>
                             </td>
                         </tr>
                     </tbody>

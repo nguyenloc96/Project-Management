@@ -3,7 +3,10 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 const URL = 'http://localhost:3000/';
-const headers = new Headers({ 'Content-Type': 'application/json' });
+const headers = new Headers({ 
+    'Content-Type': 'application/json' ,
+  
+});
 
 @Injectable({
     providedIn: 'root'
@@ -52,7 +55,7 @@ export class AppService {
     }
 
     sendLogTimeSheet(value){
-        const url = URL + 'log-time-sheet';
+        const url = URL + 'log-time-sheet/create';
         const body = JSON.stringify(value);
         return this.http.post(url, body, { headers })
         .toPromise()
@@ -69,6 +72,22 @@ export class AppService {
 
     sendProjectDetail(value){
         const url = URL + 'project-detail';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    sendUserProjects(value){
+        const url = URL + 'user/user-projects';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    sendUserNotes(value){
+        const url = URL + 'log-time-sheet/user';
         const body = JSON.stringify(value);
         return this.http.post(url, body, { headers })
         .toPromise()

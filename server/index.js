@@ -20,7 +20,13 @@ app.post('/login', jsonParser ,(req, res) =>{
             "profile": {
                 "id": 2,
                 "password": "123456",
-                "username": "user@gmail.com"
+                "username": "user@gmail.com",
+                "role": "ROLE_ADMIN",
+                "authorities": [
+                    {
+                        "authority": "ROLE_ADMIN"
+                    }
+                ]
             }        
         });
     }
@@ -131,13 +137,11 @@ app.post('/add-user', jsonParser ,(req, res) =>{
     });
 })
 
-app.post('/log-time-sheet', jsonParser ,(req, res) =>{
+app.post('/log-time-sheet/create', jsonParser ,(req, res) =>{
     res.send({
-        status: 'true'
+        status: true
     });
 })
-
-
 
 app.post('/user-project', jsonParser ,(req, res) =>{
     res.send([
@@ -147,9 +151,68 @@ app.post('/user-project', jsonParser ,(req, res) =>{
 })
 
 app.post('/project-detail', jsonParser ,(req, res) =>{
-    res.send({
-        status: 'true',
-    });
+    res.send(
+        {
+            "project": {
+                "project_id": 1,
+                "projectName": "Project Name 1",
+                "customer": "Mr.Bean",
+                "pm": "Mr.IoC",
+                "technology": "java",
+                "description": "awesome project"
+            },
+            "list_user": [
+                {
+                    "id": 2,
+                    "username": "user1@gmail.com"
+                },
+                {
+                    "id": 3,
+                    "username": "user2@gmail.com"
+                },
+                {
+                    "id": 4,
+                    "username": "user3@gmail.com"
+                }
+            ]
+        }        
+    );
+})
+
+app.post('/user/user-projects', jsonParser ,(req, res) =>{
+    res.send([
+        {project_id: '1' ,projectName: 'Project Name 1'},
+        {project_id: '2' ,projectName: 'Project Name 2'},
+        {project_id: '3' ,projectName: 'Project Name 3'},
+        {project_id: '4' ,projectName: 'Project Name 4'},
+        {project_id: '5' ,projectName: 'Project Name 5'},
+        {project_id: '6' ,projectName: 'Project Name 6'},
+        {project_id: '7' ,projectName: 'Project Name 7'},
+        {project_id: '8' ,projectName: 'Project Name 8'}
+    ]);
+})
+
+listNoteUsers = [
+    {
+       "id": 2,
+       "project_id": 1,
+       "role": "QA",
+       "type": "fix bug",
+       "hours": 8,
+       "user_id": 3
+    },
+    {
+       "id": 3,
+       "project_id": 2,
+       "role": "QB",
+       "type": "flask",
+       "hours": 8,
+       "user_id": 3
+    },
+]
+
+app.post('/log-time-sheet/user', jsonParser ,(req, res) =>{
+    res.send(listNoteUsers);
 })
 
 app.listen(3000, () => console.log('Server is running.......'));

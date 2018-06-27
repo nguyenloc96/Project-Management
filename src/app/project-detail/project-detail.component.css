@@ -66,6 +66,9 @@ table tbody tr{
 table tbody tr td:first-child:before{ 
     content: counter(no);
 }
+table tr td{
+    vertical-align: middle;
+}
 .icon-edit, .icon-delete{
     padding: 5px;
     cursor: pointer;
