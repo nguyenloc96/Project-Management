@@ -1,0 +1,54 @@
+<app-dashboard></app-dashboard>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/my-dashboard">My Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/create-project"> Create Project</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/create-note">Create Notes</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a routerLink="/add-user">Add user to the project</a>
+            </li>
+        </ol>
+        <div class="card add-user">
+            <div class="card-header text-center">
+                <h3> Information Notes </h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
+                    <thead class="text-center">
+                        <tr>
+                            <td scope="col">ID</td>
+                            <td scope="col">Name Project</td>
+                            <td scope="col">ID Note</td>
+                            <td scope="col">Roles</td>
+                            <td scope="col">Job type</td>
+                            <td scope="col">Hours</td>
+                            <td scope="col">User create note</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor = "let item of listNotes">
+                            <td scope="row"> {{ projectID }} </td>
+                            <td> {{ projectName }} </td>
+                            <td>{{ item.log_time_sheet_id }}</td>
+                            <td>{{ item.role }}</td>
+                            <td>{{ item.type }}</td>
+                            <td>{{ item.hours }}</td>
+                            <td>
+                                <!--<i class="fas fa-edit icon-edit text-primary"></i>
+                                <i class="fas fa-trash-alt icon-delete text-danger"></i>-->
+                                {{ item.username }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

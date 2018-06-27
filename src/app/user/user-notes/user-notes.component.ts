@@ -9,6 +9,7 @@ import { AppService } from '../../app.service';
 })
 
 export class UserNotesComponent implements OnInit {
+    arrNotes;
 
     constructor(
         private appService: AppService,
@@ -21,6 +22,7 @@ export class UserNotesComponent implements OnInit {
         )
         .then(result => {
             console.log(result);
+            this.arrNotes = result;
         })
         .catch(error => console.log(error))
     }

@@ -9,11 +9,13 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { ShowProjectComponent } from './show-project/show-project.component';
 import { ShowUserComponent } from './show-user/show-user.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { NoteProjectComponent } from './note-project/note-project.component';
+
 import { UserProjectsComponent } from '../app/user/user-projects/user-projects.component';
 import { UserNotesComponent } from '../app/user/user-notes/user-notes.component';
 import { UserDashboardComponent } from '../app/user/user-dashboard/user-dashboard.component';
 import { UserCreateNoteComponent } from '../app/user/user-create-note/user-create-note.component';
-
+ 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
@@ -24,6 +26,7 @@ const routes: Routes = [
     { path: 'add-user', component: AddUserComponent },
     { path: 'show-project', component: ShowProjectComponent },
     { path: 'show-user', component: ShowUserComponent },
+    { path: 'note-project/:id', component: NoteProjectComponent },
     { path: 'project-detail/:id', component: ProjectDetailComponent },
     { path: 'user', component: UserDashboardComponent },
     { path: 'user/user-projects', component: UserProjectsComponent },

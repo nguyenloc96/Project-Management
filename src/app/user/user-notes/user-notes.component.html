@@ -12,7 +12,7 @@
                 View all notes
             </li>
             <li class="breadcrumb-item active">
-                    <a routerLink="/user/user-create-note"> Create Notes </a>
+                <a routerLink="/user/user-create-note"> Create Notes </a>
             </li>
         </ol>
         <div class="card add-user">
@@ -21,7 +21,28 @@
             </div>
             <div class="card-body">
                 <div class="row justify-content-around">
-
+                    <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
+                        <thead class="text-center">
+                            <tr>
+                                <td scope="col">ID Project</td>
+                                <td scope="col">Name Project</td>
+                                <td scope="col">ID Note</td>
+                                <td scope="col">Roles</td>
+                                <td scope="col">Job type</td>
+                                <td scope="col">Hours</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" *ngFor="let item of arrNotes">
+                                <td scope="row">{{item.project_id}}</td>
+                                <td>{{item.projectName}}</td>
+                                <td>{{item.id}}</td>
+                                <td>{{item.role}}</td>
+                                <td>{{item.type}}</td>
+                                <td>{{item.hours}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -196,6 +196,7 @@ listNoteUsers = [
     {
        "id": 2,
        "project_id": 1,
+       "projectName": "Project Name 1",
        "role": "QA",
        "type": "fix bug",
        "hours": 8,
@@ -204,6 +205,7 @@ listNoteUsers = [
     {
        "id": 3,
        "project_id": 2,
+       "projectName": "Project Name 2",
        "role": "QB",
        "type": "flask",
        "hours": 8,
@@ -213,6 +215,33 @@ listNoteUsers = [
 
 app.post('/log-time-sheet/user', jsonParser ,(req, res) =>{
     res.send(listNoteUsers);
+})
+
+app.post('/log-time-sheet/user/project', jsonParser ,(req, res) =>{
+    res.send(
+        {
+            "project_id": req.body.project_id,
+            "projectName": "Change the world",
+            "userLog": [
+                {
+                    "log_time_sheet_id": 6,
+                    "role": "QA",
+                    "type": "fix bug",
+                    "hours": 8,
+                    "user_id": 1,
+                    "username": "admin@gmail.com"
+                },
+                {
+                    "log_time_sheet_id": 11,
+                    "role": "QA",
+                    "type": "fix bug",
+                    "hours": 8,
+                    "user_id": 1,
+                    "username": "admin@gmail.com"
+                }
+            ]
+        }
+    );
 })
 
 app.listen(3000, () => console.log('Server is running.......'));

@@ -93,4 +93,12 @@ export class AppService {
         .toPromise()
         .then(res => res.json())
     }
+
+    sendProjectNotes(value){
+        const url = URL + 'log-time-sheet/user/project';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
 }

@@ -14,8 +14,7 @@ export class UserProjectsComponent implements OnInit {
     ) {
         this.appService.sendUserProjects(
             {
-                'token': localStorage.getItem('token_user'),
-                'user_id': localStorage.getItem('user_id')
+                'token': localStorage.getItem('token_user')
             }
         )
             .then(result => {
