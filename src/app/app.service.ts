@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 const URL = 'http://localhost:8080/';
 const headers = new Headers({ 
     'Content-Type': 'application/json' ,
-  
+    'Authorization':'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzAxOTU1MTcsInVzZXJuYW1lIjoiYWRtaW5AZ21haWwuY29tIn0.r0GfyER9QAKoR-MrX4Fo1qCwXxkjToz-EOWrjkLTDiU'
 });
 
 @Injectable({
