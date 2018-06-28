@@ -41,7 +41,7 @@ export class UserCreateNoteComponent implements OnInit {
             .then(result => {
                 if (result.status == true) {
                     alert('Bạn đã tạo chú thích thành công.');
-                    this.router.navigate(['my-dashboard']);
+                    this.router.navigate(['user/user-notes']);
                 }
                 else {
                     alert('Tạo chú thích không thành công.');

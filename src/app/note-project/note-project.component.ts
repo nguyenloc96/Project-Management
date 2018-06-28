@@ -17,11 +17,10 @@ export class NoteProjectComponent implements OnInit {
         private route: ActivatedRoute
     ) {
         this.appService.sendProjectNotes({
-            'token': localStorage.getItem('token_user'),
             'project_id': +this.route.snapshot.paramMap.get('id')
         })
             .then(result => {
-                this.listNotes = result.userLog;
+                this.listNotes = result.listLogTime;
                 this.projectID = result.project_id;
                 this.projectName = result.projectName;
             })

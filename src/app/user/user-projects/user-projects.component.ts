@@ -8,17 +8,18 @@ import { AppService } from '../../app.service';
     providers: [AppService]
 })
 export class UserProjectsComponent implements OnInit {
-
+    listProject = [];
     constructor(
         private appService: AppService,
     ) {
         this.appService.sendUserProjects(
             {
-                'token': localStorage.getItem('token_user')
+                'user_id': localStorage.getItem('user_id')
             }
         )
             .then(result => {
                 console.log(result);
+                this.listProject = result;
             })
             .catch(error => console.log(error))
     }

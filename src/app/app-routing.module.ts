@@ -15,7 +15,8 @@ import { UserProjectsComponent } from '../app/user/user-projects/user-projects.c
 import { UserNotesComponent } from '../app/user/user-notes/user-notes.component';
 import { UserDashboardComponent } from '../app/user/user-dashboard/user-dashboard.component';
 import { UserCreateNoteComponent } from '../app/user/user-create-note/user-create-note.component';
- 
+import { UserProjectDetailComponent } from '../app/user/user-project-detail/user-project-detail.component';
+
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
     { path: 'user/user-projects', component: UserProjectsComponent },
     { path: 'user/user-notes', component: UserNotesComponent },
     { path: 'user/user-create-note', component: UserCreateNoteComponent },
+    { path: 'user/user-project-detail/:id', component: UserProjectDetailComponent }
 ];
 @NgModule({
     exports: [ RouterModule ],

@@ -79,7 +79,7 @@ export class AppService {
     }
 
     sendUserProjects(value){
-        const url = URL + 'user/user-projects';
+        const url = URL + 'project/user';
         const body = JSON.stringify(value);
         return this.http.post(url, body, { headers })
         .toPromise()

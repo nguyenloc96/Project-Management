@@ -15,7 +15,13 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {}
 
     onSubmit(formRegister){
-        this.appService.sendRegister(formRegister.value)
+
+        const reqData = {
+            'username': formRegister.value.username,
+            'password': formRegister.value.password
+        }
+        console.log(reqData);
+        this.appService.sendRegister(reqData)
         .then(result => {
             console.log(result);
             if(result.status == 'true'){

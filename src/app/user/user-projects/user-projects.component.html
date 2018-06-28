@@ -21,7 +21,28 @@
             </div>
             <div class="card-body">
                 <div class="row justify-content-around">
-
+                    <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
+                        <thead class="text-center">
+                            <tr>
+                                <td scope="col">ID Project</td>
+                                <td scope="col">Name Project</td>
+                                <td scope="col">View infomation</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" *ngFor="let item of listProject">
+                                <td>{{item.project_id}}</td>
+                                <td>{{item.projectName}}</td>
+                                <td>
+                                    <button 
+                                        class="btn btn-success" 
+                                        type="button"
+                                        routerLink="/user/user-project-detail/{{item.project_id}}"
+                                    >View project information</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

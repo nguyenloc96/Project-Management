@@ -96,20 +96,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="discription">Discription</label>
+                        <label for="description">Discription</label>
                         <textarea 
                             class="form-control" 
-                            id="discription"
-                            name="discription"
-                            #txtDiscription="ngModel"
+                            id="description"
+                            name="description"
+                            #txtDescription="ngModel"
                             ngModel
                             required
                         >
                         </textarea>
-                        <p  *ngIf="txtDiscription.touched && txtDiscription.errors?.required" 
+                        <p  *ngIf="txtDescription.touched && txtDescription.errors?.required" 
                             class="text-danger"
                         >
-                            Discription is required.
+                            Description is required.
                         </p>
                     </div>
                     <div class="container">

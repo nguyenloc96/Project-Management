@@ -19,6 +19,7 @@ import { UserNotesComponent } from './user/user-notes/user-notes.component';
 import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
 import { UserCreateNoteComponent } from './user/user-create-note/user-create-note.component';
 import { NoteProjectComponent } from './note-project/note-project.component';
+import { UserProjectDetailComponent } from './user/user-project-detail/user-project-detail.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -36,7 +37,8 @@ import { NoteProjectComponent } from './note-project/note-project.component';
         UserNotesComponent,
         UserDashboardComponent,
         UserCreateNoteComponent,
-        NoteProjectComponent
+        NoteProjectComponent,
+        UserProjectDetailComponent
     ],
     imports: [
         BrowserModule,

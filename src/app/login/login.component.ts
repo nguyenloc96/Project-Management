@@ -23,12 +23,17 @@ export class LoginComponent implements OnInit {
         .then(result => {
             console.log(result);
             if(result.token != null){
+                console.log(result);
                 localStorage.setItem('token_user', result.token);
                 localStorage.setItem('user_id', result.profile.id + '');
                 localStorage.setItem('user_name', result.profile.username);
                 localStorage.setItem('role', result.profile.role);
                 alert('Đăng nhập thành công.');
-                this.router.navigate(['my-dashboard']);
+                if(result.profile.role === "ROLE_ADMIN"){
+                    this.router.navigate(['my-dashboard']);
+                }else{
+                    this.router.navigate(['user']);
+                }
             }
             else{
                 alert('Đăng nhập thất bại. Bạn hãy kiểm tra lại Email/ Password.');
