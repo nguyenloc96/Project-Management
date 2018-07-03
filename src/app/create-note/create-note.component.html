@@ -25,32 +25,16 @@
                         <div class="form-row">
                             <div class="col-md-6 form-control-sm">
                                 <label for="select-project">Select the project name:</label>
-                                <select 
-                                    class="custom-select" 
-                                    id="select-project"
-                                    [(ngModel)]="selectProject" 
-                                    name="project_id"
-                                >
-                                    <option 
-                                        *ngFor="let item of listProjects"
-                                        [value]="item[1].project_id"
-                                    >
+                                <select class="custom-select" id="select-project" [(ngModel)]="selectProject" name="project_id">
+                                    <option *ngFor="let item of listProjects" [value]="item[1].project_id">
                                         {{item[1].projectName}}
                                     </option>
                                 </select>
                             </div>
                             <div class="col-md-6 form-control-sm">
                                 <label for="select-job">Select job type:</label>
-                                <select 
-                                    class="custom-select" 
-                                    id="select-job"
-                                    [(ngModel)]="selectJob" 
-                                    name="job_type"
-                                >
-                                    <option 
-                                        *ngFor="let item of listJobs"
-                                        [value]="item"
-                                    >
+                                <select class="custom-select" id="select-job" [(ngModel)]="selectJob" name="type">
+                                    <option *ngFor="let item of listJobs" [value]="item">
                                         {{item}}
                                     </option>
                                 </select>
@@ -59,36 +43,40 @@
                         <div class="form-row">
                             <div class="col-md-6 form-control-sm">
                                 <label for="role">Roles</label>
-                                <input 
-                                    class="form-control" 
-                                    id="role" 
-                                    placeholder="Enter role"
-                                    name="role"
-                                    #txtRole="ngModel"
-                                    ngModel
-                                    required
-                                >
-                                <p *ngIf="txtRole.touched && txtRole.errors?.required" class="text-danger">
-                                    Role is required.
-                                </p>
+                                <select class="custom-select" id="role" [(ngModel)]="selectRole" name="role">
+                                    <option *ngFor="let item of listRoles" [value]="item">
+                                        {{item}}
+                                    </option>
+                                </select>
                             </div>
                             <div class="col-md-6 form-control-sm">
                                 <label for="time-hour">Hours</label>
-                                <input 
-                                    class="form-control" 
-                                    id="time-hour" 
-                                    type="number" 
-                                    placeholder="Enter hour"
-                                    name="hours"
-                                    #txtTimeHour="ngModel"
-                                    ngModel
-                                    required
-                                >
+                                <input class="form-control" id="time-hour" type="number" placeholder="Enter hour" name="hours" #txtTimeHour="ngModel" ngModel
+                                    required>
                                 <p *ngIf="txtTimeHour.touched && txtTimeHour.errors?.required" class="text-danger">
                                     Hours is required.
                                 </p>
+                                <p *ngIf="txtTimeHour.value > 12 || txtTimeHour.value < 0" class="text-danger">
+                                    Hours must be greater than 0 and less than 12
+                                </p>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input class="form-control" id="date" type="date" name="date" min="2018-05-01" max="2020-12-30" #txtDate="ngModel" ngModel
+                            required>
+                        <p *ngIf="txtDate.touched && txtDate.errors?.required" class="text-danger">
+                            Date is required.
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" #txtDescription="ngModel" ngModel required>
+                        </textarea>
+                        <p *ngIf="txtDescription.touched && txtDescription.errors?.required" class="text-danger">
+                            Description is required.
+                        </p>
                     </div>
                     <div class="container">
                         <div class="row justify-content-center">
@@ -96,11 +84,7 @@
                                 <a class="btn btn-secondary" routerLink="/my-dashboard">Cancel</a>
                             </div>
                             <div class="col-6 text-left">
-                                <button 
-                                    class="btn btn-primary" 
-                                    type="submit"
-                                    [disabled]="formCreateNote.invalid"
-                                >Create</button>
+                                <button class="btn btn-primary" type="submit" [disabled]="formCreateNote.invalid">Create</button>
                             </div>
                         </div>
                     </div>

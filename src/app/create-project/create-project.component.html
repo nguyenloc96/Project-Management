@@ -42,20 +42,19 @@
                             </div>
                             <div class="col-md-6 form-control-sm">
                                 <label for="name-PM">Name PM</label>
-                                <input 
-                                    class="form-control" 
-                                    id="name-PM" 
-                                    placeholder="Name PM"
+                                <select 
+                                    class="custom-select" 
+                                    id="name-PM"
+                                    [(ngModel)]="pmSelected" 
                                     name="pm"
-                                    #txtNamePM="ngModel"
-                                    ngModel
-                                    required
                                 >
-                                <p  *ngIf="txtNamePM.touched && txtNamePM.errors?.required" 
-                                    class="text-danger"
-                                >
-                                    Name PM is required.
-                                </p>
+                                    <option 
+                                        *ngFor="let item of listPM"
+                                        [value]="item"
+                                    >
+                                        {{item}}
+                                    </option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-row">
@@ -78,25 +77,24 @@
                             </div>
                             <div class="col-md-6 form-control-sm">
                                 <label for="name-technology">Name Technology</label>
-                                <input 
-                                    class="form-control" 
-                                    id="name-technology" 
-                                    placeholder="Name technology"
-                                    name="technology"
-                                    #txtNameTechnology="ngModel"
-                                    ngModel
-                                    required
+                                <select 
+                                class="custom-select" 
+                                id="name-technology"
+                                [(ngModel)]="selectTechnology" 
+                                name="technology"
                                 >
-                                <p  *ngIf="txtNameTechnology.touched && txtNameTechnology.errors?.required" 
-                                    class="text-danger"
-                                >
-                                    Name Technology is required.
-                                </p>
+                                    <option 
+                                        *ngFor="let item of arrTechnology"
+                                        [value]="item"
+                                    >
+                                        {{item}}
+                                    </option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Discription</label>
+                        <label for="description">Description</label>
                         <textarea 
                             class="form-control" 
                             id="description"

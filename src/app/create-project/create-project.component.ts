@@ -9,14 +9,38 @@ import { AppService } from '../app.service';
     providers: [AppService]
 })
 export class CreateProjectComponent implements OnInit {
-
+    listPM = [];
+    pmSelected: number;
+    selectTechnology: string;
+    arrTechnology = [
+        "C/C++",
+        "Java",
+        "Python",
+        "Ruby/rail",
+        "PHP",
+        "Nodejs",
+        "React Native",
+        ".Net",
+        "C#",
+        "Swift",
+        "Golang",
+    ]
     constructor(
         private appService: AppService,
         private router: Router
-    ) { }
-
-    ngOnInit() {
+    ) { 
+        this.appService.sendGetPM()
+        .then(result => {
+            for(var i=0; i< result.length; i++){
+                this.listPM[i] = result[i].username;
+                this.pmSelected = this.listPM[0];
+                this.selectTechnology = "C/C++";
+            }
+        })
+        .catch(error => console.log(error))
     }
+
+    ngOnInit() {}
 
     onSubmit(form){
         console.log(form.value);

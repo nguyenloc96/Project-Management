@@ -8,16 +8,8 @@
                 <form #formLogin="ngForm" (ngSubmit)="onSubmit(formLogin);">
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input 
-                            class="form-control" 
-                            id="email" type="email" 
-                            placeholder="Enter email"
-                            name="username"
-                            #txtEmail="ngModel"
-                            [(ngModel)]="email"
-                            required
-                            email
-                        >
+                        <input class="form-control" id="email" type="email" placeholder="Enter email" name="username" #txtEmail="ngModel" [(ngModel)]="email"
+                            required email>
                     </div>
                     <div>
                         <p *ngIf="txtEmail.touched && txtEmail.errors?.required" class="text-danger">
@@ -27,32 +19,23 @@
                             Email is not valid.
                         </p>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input 
-                            class="form-control" 
-                            id="password" type="password" 
-                            placeholder="Password"  
-                            name="password"
-                            #txtPassword="ngModel"
-                            [(ngModel)]="password"
-                            required
-                        >
+                        <input class="form-control" id="password" type="password" placeholder="Password" name="password" #txtPassword="ngModel" [(ngModel)]="password"
+                            required>
                     </div>
                     <p *ngIf="txtPassword.touched && txtPassword.errors?.required" class="text-danger">
                         Password is required.
                     </p>
-                    <button 
-                        class="btn btn-primary btn-block"
-                        [disabled]="formLogin.invalid"
-                    >Login</button>
-                   
+                    <button class="btn btn-primary btn-block" [disabled]="formLogin.invalid">Login</button>
                 </form>
                 <div class="text-center">
                     <a class="d-block small mt-4" routerLink="/register">Register an Account</a>
                 </div>
+                <div id="snackbar" [class]="className">{{massage}}</div>
             </div>
         </div>
     </div>
 </div>
+

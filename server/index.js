@@ -14,7 +14,7 @@ EMAIL = 'user@gmail.com';
 PASSWORD = '123456';
 
 app.post('/login', jsonParser ,(req, res) =>{
-    if(req.body.email == EMAIL && req.body.password == PASSWORD){
+    if(req.body.username == EMAIL && req.body.password == PASSWORD){
         res.send({
             "token": 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mjk3MjI1NjMsInVzZXJuYW1lIjoidXNlckBnbWFpbC5jb20ifQ._XIAFHAuQJwG6IyOQmVilPWXNv8yYP30szQ-urK76so',
             "profile": {
@@ -45,7 +45,7 @@ app.post('/register', jsonParser ,(req, res) =>{
 
 app.post('/create-project', jsonParser ,(req, res) =>{
     res.send({
-        "status": 'true',
+        "status": true,
         "projectInfo": {
             "project_id": 3,
             "customer": "Nam Dep Trai",
@@ -107,6 +107,18 @@ const listProject = {
         "technology": "java"
     }
 };
+
+const listPM = [
+    {"username":"user1@gmail.com"},
+    {"username":"user2@gmail.com"},
+    {"username":"user3@gmail.com"},
+];
+
+app.get('/get-pm', jsonParser ,(req, res) =>{
+    res.send(
+        listPM
+    );
+})
 
 app.get('/get-projects', jsonParser ,(req, res) =>{
     res.send(

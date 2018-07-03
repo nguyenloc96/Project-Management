@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-const URL = 'http://localhost:8080/';
+const URL = 'http://localhost:3000/';
 const headers = new Headers({ 
-    'Content-Type': 'application/json' ,
-    'Authorization':'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzAxOTU1MTcsInVzZXJuYW1lIjoiYWRtaW5AZ21haWwuY29tIn0.r0GfyER9QAKoR-MrX4Fo1qCwXxkjToz-EOWrjkLTDiU'
+    'Content-Type': 'application/json'
 });
 
 @Injectable({
@@ -41,6 +40,13 @@ export class AppService {
 
     sendGetUsers(){
         const url = URL + 'get-users';
+        return this.http.get(url, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    sendGetPM(){
+        const url = URL + 'get-pm';
         return this.http.get(url, { headers })
         .toPromise()
         .then(res => res.json())

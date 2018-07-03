@@ -12,8 +12,10 @@ export class CreateNoteComponent implements OnInit {
 
     listProjects = [];
     listJobs = ['task', 'fix bug', 'other'];
+    listRoles = ['test', 'dev', 'hr', 'accounter', 'other'];
     selectProject: Number;
     selectJob: String;
+    selectRole: String;
 
     constructor(
         private appService: AppService,
@@ -32,6 +34,7 @@ export class CreateNoteComponent implements OnInit {
     ngOnInit() {
         this.selectProject = 1;
         this.selectJob = 'task';
+        this.selectRole = 'test';
     }
 
     onSubmit(form) {
@@ -42,7 +45,7 @@ export class CreateNoteComponent implements OnInit {
             .then(result => {
                 if (result.status == true) {
                     alert('Bạn đã tạo chú thích thành công.');
-                    this.router.navigate(['user']);
+                    this.router.navigate(['my-dashboard']);
                 }
                 else {
                     alert('Tạo chú thích không thành công.');
