@@ -19,7 +19,7 @@ export class ViewAllNotesComponent implements OnInit {
     this.appService.sendGetCountLogTimeSheet().then(result => {
       this.countsItem = result;
     });
-    this.getDataPaging(0, 10);
+    this.getDataPaging(0, this.numberItemsPage);
   }
 
   ngOnInit() {
@@ -34,7 +34,6 @@ export class ViewAllNotesComponent implements OnInit {
               return [key, result[key]];
           });
           this.listAllNotes = arr3;
-          console.log(this.listAllNotes);
       })
     }
 }

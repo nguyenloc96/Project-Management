@@ -141,8 +141,18 @@ export class AppService {
         const url = URL + 'log-time-sheet/get-data-paging';
         let a = {"from":from, "offset": offset};
         const body = JSON.stringify( a);
-        console.log( body);
         return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
     }
 
+    sendGetDataPagingUsers(from, offset){
+        const url = URL + 'user/get-data-user-paging';
+        let a = { "from": from, "offset": offset};
+        const body = JSON.stringify( a);
+        return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+    }
+
+    sendGetCountUsers(){
+        const url = URL + 'user/get-count-users';
+        return this.http.get(url, {headers}).toPromise().then(res => res.json());
+    }
 }
