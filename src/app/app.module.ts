@@ -20,6 +20,7 @@ import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.com
 import { UserCreateNoteComponent } from './user/user-create-note/user-create-note.component';
 import { NoteProjectComponent } from './note-project/note-project.component';
 import { UserProjectDetailComponent } from './user/user-project-detail/user-project-detail.component';
+import { GetAllProjectComponent } from './get-all-project/get-all-project.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import { UserProjectDetailComponent } from './user/user-project-detail/user-proj
         UserDashboardComponent,
         UserCreateNoteComponent,
         NoteProjectComponent,
-        UserProjectDetailComponent
+        UserProjectDetailComponent,
+        GetAllProjectComponent
     ],
     imports: [
         BrowserModule,
