@@ -1,0 +1,70 @@
+<app-dashboard></app-dashboard>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/my-dashboard">My Dashboard</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/create-project"> Create Project</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/create-note">Create Notes</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/create-note">Create Notes</a>
+      </li>
+      <li class="breadcrumb-item active">
+        <a routerLink="/add-user">Add user to the project</a>
+      </li>
+      <li class="breadcrumb-item active">
+        View all notes
+      </li>
+    </ol>
+    <div class="card add-user">
+      <div class="card-header text-center">
+        <h3>Project Management</h3>
+      </div>
+      <div class="card-body">
+        <div class="row justify-content-around">
+          <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
+            <thead class="text-center">
+            <tr>
+              <td>#</td>
+              <td scope="col">ID Note</td>
+              <td scope="col">Name Project</td>
+              <td scope="col">Role</td>
+              <td scope="col">Type</td>
+              <td scope="col">Hours</td>
+              <td scope="col">Date</td>
+              <td scope="col">Username</td>
+              <td scope="col">Description</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center" *ngFor="let item of listAllNotes | paginate: {
+                                                      itemsPerPage: numberItemsPage,
+                                                      currentPage: p,
+                                                      totalItems: countsItem }">
+              <td></td>
+              <td scope="row">{{item[1].id}}</td>
+              <td>{{item[1].projectName}}</td>
+              <td>{{item[1].role}}</td>
+              <td>{{item[1].type}}</td>
+              <td>{{item[1].hours}}</td>
+              <td>{{item[1].date}}</td>
+              <td>{{item[1].username}}</td>
+              <td>{{item[1].description}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <pagination-controls
+                                (pageChange)="pageChanged(p = $event)"
+                                autoHide="false">
+          </pagination-controls>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
