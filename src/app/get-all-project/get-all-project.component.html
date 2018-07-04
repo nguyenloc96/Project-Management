@@ -1,0 +1,131 @@
+<app-dashboard></app-dashboard>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a routerLink="/my-dashboard"> My Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/create-project"> Create Project</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/create-note">Create Notes</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a routerLink="/add-user">Add user to the project</a>
+            </li>
+            <li class="breadcrumb-item active">
+               All Project
+            </li>
+        </ol>
+        <div class="card add-user">
+            <div class="card-header text-center">
+                <h3>Project Management</h3>
+            </div>
+            <div class="card-body">
+            <!--    <div class="row justify-content-around">  -->
+                    <form #formProjectFilter="ngForm" (ngSubmit)="onSubmit(formProjectFilter);">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-4 form-control-sm">
+                                    <label for="name-field">Field</label>
+                                
+                                </div>
+                                <div class="col-md-4 form-control-sm">
+                                    <label for="name-PM">Value</label>
+                            
+                                    
+                                </div>
+                            
+                            </div>
+                            <div class="form-row">
+                                    <div class="col-md-4 form-control-sm">
+                                        <select 
+                                            class="custom-select" 
+                                            id="name-field"
+                                            [(ngModel)]="selectField" 
+                                            name="field"
+                                            >
+                                            <option 
+                                                *ngFor="let item of field"
+                                                [value]="item"
+                                            >
+                                                {{item}}
+                                            </option>
+                                        </select>
+                    
+                                    </div>
+                                <div class="col-md-4 form-control-sm">
+                                    <input 
+                                        class="form-control" 
+                                        id="name" 
+                                        placeholder="Enter Filter value"
+                                        name="name"
+                                        #txtNameProject="ngModel"
+                                        ngModel
+                                        required
+                                    >
+                                </div>
+                                <button class="btn btn-primary" type="submit">filter</button>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <td scope="col">#</td>
+                                <td scope="col">Name Project</td>
+                                <td> Choose button </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let list of listProjects">
+                                <td id="{{list[1].project_id}}"></td>
+                                <td>{{list[1].projectName}}</td>
+                                <td>
+                                    <div class="row justify-content-center">
+                                        <div class="col-4 text-right">
+                                            <button 
+                                                class="btn btn-success" 
+                                                type="button"
+                                                routerLink="/project-detail/{{list[1].project_id}}"
+                                            >View project information</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button 
+                                                class="btn btn-primary" 
+                                                type="button"
+                                                routerLink="/add-user"
+                                            >Add user to the project</button>
+                                        </div>
+                                        <div class="col-4 text-left">
+                                            <button 
+                                                class="btn btn-info" 
+                                                type="button"
+                                                routerLink="/note-project/{{list[1].project_id}}"
+                                            >View notes information </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                
+                              <li class="page-item"><a class="page-link" (click)="onClick(index_of_page-1)">Previous</a></li>
+                              <li class="page-item"><a class="page-link" (click)="onClick(index_of_page)">{{index_of_page}}</a></li>
+                              <li class="page-item"><a class="page-link" (click)="onClick(index_of_page+1)">{{index_of_page+1}}</a></li>
+                              <li class="page-item"><a class="page-link" >...</a></li>
+                              <li class="page-item"><a class="page-link" (click)="onClick(maxpage)">{{maxpage}}</a></li>
+                              <li class="page-item"><a class="page-link" (click)="onClick(index_of_page+1)">Next</a></li>
+                               
+                                
+                            </ul>
+                          </nav>
+
+               <!-- </div> -->
+            </div>
+        </div>
+    </div>
+</div>

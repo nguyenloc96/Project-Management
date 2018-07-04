@@ -116,6 +116,22 @@ export class AppService {
         .then(res => res.json())
     }
 
+    sendProjectPage(){
+        const url = URL + 'get-project-pages';
+        return this.http.get(url, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    sendProjectFilter(value){
+        const url = URL + 'project-filter';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    
 
     sendGetCountLogTimeSheet() {
         const url = URL + 'log-time-sheet/get-count-log';
