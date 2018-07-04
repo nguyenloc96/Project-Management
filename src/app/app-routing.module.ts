@@ -38,12 +38,22 @@ const routes: Routes = [
     { path: 'user/user-create-note', component: UserCreateNoteComponent },
     { path: 'user/user-project-detail/:id', component: UserProjectDetailComponent },
 <<<<<<< HEAD
+<<<<<<< HEAD
     { path: 'view-all-notes', component: ViewAllNotesComponent},
     { path: 'view-all-users', component: ViewAllUsersComponent}
 =======
     { path: 'get-all-project', component: GetAllProjectComponent},
     { path: 'view-all-notes', component: ViewAllNotesComponent}
 >>>>>>> a21855602158e68b7356b9abab8701363541b03d
+=======
+
+    { path: 'view-all-notes', component: ViewAllNotesComponent},
+    { path: 'view-all-users', component: ViewAllUsersComponent},
+
+    { path: 'get-all-project', component: GetAllProjectComponent},
+    { path: 'view-all-notes', component: ViewAllNotesComponent}
+
+>>>>>>> 3a6f0c90043ef0bd5e366c111601e0ed026a92be
 ];
 @NgModule({
     exports: [ RouterModule ],

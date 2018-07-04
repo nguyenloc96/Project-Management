@@ -45,12 +45,22 @@ import { ViewAllUsersComponent } from './view-all-users/view-all-users.component
         NoteProjectComponent,
         UserProjectDetailComponent,
 <<<<<<< HEAD
+<<<<<<< HEAD
         ViewAllNotesComponent,
         ViewAllUsersComponent
 =======
         GetAllProjectComponent,
         ViewAllNotesComponent
 >>>>>>> a21855602158e68b7356b9abab8701363541b03d
+=======
+
+        ViewAllNotesComponent,
+        ViewAllUsersComponent,
+
+        GetAllProjectComponent,
+        ViewAllNotesComponent
+
+>>>>>>> 3a6f0c90043ef0bd5e366c111601e0ed026a92be
     ],
     imports: [
         BrowserModule,
