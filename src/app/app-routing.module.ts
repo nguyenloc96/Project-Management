@@ -39,10 +39,10 @@ const routes: Routes = [
     { path: 'user/user-project-detail/:id', component: UserProjectDetailComponent },
 
     { path: 'view-all-notes', component: ViewAllNotesComponent},
-    { path: 'view-all-users', component: ViewAllUsersComponent}
+    { path: 'view-all-users', component: ViewAllUsersComponent},
 
     { path: 'get-all-project', component: GetAllProjectComponent},
-    { path: 'view-all-notes', component: ViewAllNotesComponent}
+    { path: 'view-all-notes', component: ViewAllNotesComponent},
 
 
     { path: 'view-all-notes', component: ViewAllNotesComponent},
