@@ -20,6 +20,7 @@ import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.com
 import { UserCreateNoteComponent } from './user/user-create-note/user-create-note.component';
 import { NoteProjectComponent } from './note-project/note-project.component';
 import { UserProjectDetailComponent } from './user/user-project-detail/user-project-detail.component';
+import { GetAllProjectComponent } from './get-all-project/get-all-project.component';
 import { ViewAllNotesComponent } from './view-all-notes/view-all-notes.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
@@ -43,8 +44,13 @@ import { ViewAllUsersComponent } from './view-all-users/view-all-users.component
         UserCreateNoteComponent,
         NoteProjectComponent,
         UserProjectDetailComponent,
+<<<<<<< HEAD
         ViewAllNotesComponent,
         ViewAllUsersComponent
+=======
+        GetAllProjectComponent,
+        ViewAllNotesComponent
+>>>>>>> a21855602158e68b7356b9abab8701363541b03d
     ],
     imports: [
         BrowserModule,
