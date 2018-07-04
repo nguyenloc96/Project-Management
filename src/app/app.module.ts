@@ -21,6 +21,8 @@ import { UserCreateNoteComponent } from './user/user-create-note/user-create-not
 import { NoteProjectComponent } from './note-project/note-project.component';
 import { UserProjectDetailComponent } from './user/user-project-detail/user-project-detail.component';
 import { GetAllProjectComponent } from './get-all-project/get-all-project.component';
+import { ViewAllNotesComponent } from './view-all-notes/view-all-notes.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
     declarations: [
@@ -41,13 +43,15 @@ import { GetAllProjectComponent } from './get-all-project/get-all-project.compon
         UserCreateNoteComponent,
         NoteProjectComponent,
         UserProjectDetailComponent,
-        GetAllProjectComponent
+        GetAllProjectComponent,
+        ViewAllNotesComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpModule,
-        FormsModule
+        FormsModule,
+        NgxPaginationModule
     ],
     providers: [],
     bootstrap: [AppComponent]

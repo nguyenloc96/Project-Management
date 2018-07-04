@@ -132,4 +132,17 @@ export class AppService {
     }
 
     
+
+    sendGetCountLogTimeSheet() {
+        const url = URL + 'log-time-sheet/get-count-log';
+        return this.http.get(url, {headers}).toPromise().then(res => res.json());
+    }
+    sendGetDataPagingLogTimeSheet(from, offset) {
+        const url = URL + 'log-time-sheet/get-data-paging';
+        let a = {"from":from, "offset": offset};
+        const body = JSON.stringify( a);
+        console.log( body);
+        return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+    }
+
 }
