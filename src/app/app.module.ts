@@ -49,7 +49,15 @@ import { ViewAllUsersComponent } from './view-all-users/view-all-users.component
         ViewAllUsersComponent,
 
         GetAllProjectComponent,
+        ViewAllNotesComponent,
+
+
+        ViewAllNotesComponent,
+        ViewAllUsersComponent,
+
+        GetAllProjectComponent,
         ViewAllNotesComponent
+
 
     ],
     imports: [

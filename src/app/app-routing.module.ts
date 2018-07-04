@@ -42,7 +42,15 @@ const routes: Routes = [
     { path: 'view-all-users', component: ViewAllUsersComponent},
 
     { path: 'get-all-project', component: GetAllProjectComponent},
+    { path: 'view-all-notes', component: ViewAllNotesComponent},
+
+
+    { path: 'view-all-notes', component: ViewAllNotesComponent},
+    { path: 'view-all-users', component: ViewAllUsersComponent},
+
+    { path: 'get-all-project', component: GetAllProjectComponent},
     { path: 'view-all-notes', component: ViewAllNotesComponent}
+
 
 ];
 @NgModule({
