@@ -26,7 +26,7 @@ export class ViewAllNotesComponent implements OnInit {
   }
 
     pageChanged($event) {
-        this.getDataPaging($event * this.numberItemsPage, this.numberItemsPage);
+        this.getDataPaging($event * this.numberItemsPage - this.numberItemsPage, this.numberItemsPage);
     }
     getDataPaging(from, offset) {
       this.appService.sendGetDataPagingLogTimeSheet(from, offset).then(result => {
