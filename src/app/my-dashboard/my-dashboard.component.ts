@@ -10,7 +10,7 @@ import { AppService } from '../app.service';
 export class MyDashboardComponent implements OnInit {
     listProjects = [];
     constructor(private appService: AppService) { 
-        this.appService.sendGetProjects()
+        this.appService.sendGetAllProjects({"index_of_page": 1})
         .then(result => {
             var arr = Object.keys(result).map(function(key) {
                 return [Number(key), result[key]];

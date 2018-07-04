@@ -29,6 +29,8 @@
                             <td scope="col">Name Customer</td>
                             <td scope="col">Name Technology</td>
                             <td scope="col">Description</td>
+                            <td scope="col">Status</td>
+                            <td scope="col">Notes</td>
                             <td scope="col">User in the project</td>
                         </tr>
                     </thead>
@@ -40,12 +42,17 @@
                             <td>{{projectDetail.customer}}</td>
                             <td>{{projectDetail.technology}}</td>
                             <td>{{projectDetail.description}}</td>
+                            <td>{{projectDetail.status}}</td>
+                            <td>{{projectDetail.notes}}</td>
                             <td>
                                 <!--<i class="fas fa-edit icon-edit text-primary"></i>
                                 <i class="fas fa-trash-alt icon-delete text-danger"></i>-->
+                                <!--
                                 <ul *ngFor="let user of listUser">
                                     <li>{{user.username}}</li>
                                 </ul>
+                                -->
+                                <button class="btn btn-primary" (click)="onClick();" >check users</button>
                             </td>
                         </tr>
                     </tbody>

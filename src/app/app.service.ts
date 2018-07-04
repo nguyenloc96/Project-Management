@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-const URL = 'http://localhost:3000/';
+const URL = 'http://localhost:8080/';
 const headers = new Headers({ 
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('token_user')
 });
 
 @Injectable({
@@ -34,6 +35,13 @@ export class AppService {
     sendGetProjects(){
         const url = URL + 'get-projects';
         return this.http.get(url, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+    sendGetAllProjects(value){
+        const url = URL + 'get-all-projects';
+        const body = JSON.stringify(value);
+        return this.http.post(url,body, { headers })
         .toPromise()
         .then(res => res.json())
     }

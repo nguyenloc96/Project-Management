@@ -29,6 +29,10 @@ export class ProjectDetailComponent implements OnInit {
             })
             .catch(error => console.log(error))
     }
+    
+    onClick(){
+        
+    }
 
     ngOnInit() {}
 }
