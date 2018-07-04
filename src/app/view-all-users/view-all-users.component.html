@@ -15,15 +15,15 @@
         <a routerLink="/add-user">Add user to the project</a>
       </li>
       <li class="breadcrumb-item active">
-        View all notes
+        <a routerLink="/view-all-notes">View all notes</a>
       </li>
       <li class="breadcrumb-item active">
-        <a routerLink="/view-all-users">View all users</a>
+        View all users
       </li>
     </ol>
     <div class="card add-user">
       <div class="card-header text-center">
-        <h3>View all notes</h3>
+        <h3>View all users</h3>
       </div>
       <div class="card-body">
         <div class="row justify-content-around">
@@ -31,36 +31,28 @@
             <thead class="text-center">
             <tr>
               <td>#</td>
-              <td scope="col">ID Note</td>
-              <td scope="col">Name Project</td>
-              <td scope="col">Role</td>
-              <td scope="col">Type</td>
-              <td scope="col">Hours</td>
-              <td scope="col">Date</td>
+              <td scope="col">ID User</td>
               <td scope="col">Username</td>
-              <td scope="col">Description</td>
+              <td scope="col">Role</td>
+              <td scope="col">Job</td>
             </tr>
             </thead>
             <tbody>
-            <tr class="text-center" *ngFor="let item of listAllNotes | paginate: {
+            <tr class="text-center" *ngFor="let item of listUsers | paginate: {
                                                       itemsPerPage: numberItemsPage,
                                                       currentPage: p,
-                                                      totalItems: countsItem }">
+                                                      totalItems: counts }">
               <td></td>
               <td scope="row">{{item[1].id}}</td>
-              <td>{{item[1].projectName}}</td>
-              <td>{{item[1].role}}</td>
-              <td>{{item[1].type}}</td>
-              <td>{{item[1].hours}}</td>
-              <td>{{item[1].date}}</td>
               <td>{{item[1].username}}</td>
-              <td>{{item[1].description}}</td>
+              <td>{{item[1].role}}</td>
+              <td>{{item[1].job}}</td>
             </tr>
             </tbody>
           </table>
           <pagination-controls
-                                (pageChange)="pageChanged(p = $event)"
-                                autoHide="false">
+                  (pageChange)="pageChanged(p = $event)"
+                  autoHide="false">
           </pagination-controls>
 
         </div>

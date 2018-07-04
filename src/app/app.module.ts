@@ -22,6 +22,7 @@ import { NoteProjectComponent } from './note-project/note-project.component';
 import { UserProjectDetailComponent } from './user/user-project-detail/user-project-detail.component';
 import { ViewAllNotesComponent } from './view-all-notes/view-all-notes.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
         UserCreateNoteComponent,
         NoteProjectComponent,
         UserProjectDetailComponent,
-        ViewAllNotesComponent
+        ViewAllNotesComponent,
+        ViewAllUsersComponent
     ],
     imports: [
         BrowserModule,
