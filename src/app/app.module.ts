@@ -44,20 +44,9 @@ import { ViewAllUsersComponent } from './view-all-users/view-all-users.component
         UserCreateNoteComponent,
         NoteProjectComponent,
         UserProjectDetailComponent,
-
-        ViewAllNotesComponent,
         ViewAllUsersComponent,
-
-        GetAllProjectComponent,
-        ViewAllNotesComponent,
-
-
-        ViewAllNotesComponent,
-        ViewAllUsersComponent,
-
         GetAllProjectComponent,
         ViewAllNotesComponent
-
 
     ],
     imports: [

@@ -42,18 +42,11 @@
             </div>
             <div class="form-row">
               <div class="col-md-4 form-control-sm">
-                <select
-
-                        class="custom-select"
+                <select class="form-control"
                         id="name-field"
                         [(ngModel)]="selectField"
-                        name="field"
-
-                >
-                  <option
-                          *ngFor="let item of field"
-                          [value]="item"
-                  >
+                        name="filterSelected">
+                  <option *ngFor="let item of field" [value]="item">
                     {{item}}
                   </option>
                 </select>
@@ -64,8 +57,9 @@
                         class="form-control"
                         id="value-filter"
                         placeholder="Enter Filter value"
-                        name="name"
-                        #txtNameProject="ngModel"
+                        name="value_filter"
+                        [(ngModel)] = "value_filter"
+                        #txtValueFilter="ngModel"
                         ngModel
                         required
                 >
@@ -102,7 +96,7 @@
               <td>{{item[1].role}}</td>
               <td>{{item[1].type}}</td>
               <td>{{item[1].hours}}</td>
-              <td>{{item[1].date}}</td>
+              <td>{{item[1].date | date}}</td>
               <td>{{item[1].username}}</td>
               <td>{{item[1].description}}</td>
             </tr>
