@@ -133,26 +133,54 @@ export class AppService {
 
     
 
-    sendGetCountLogTimeSheet() {
-        const url = URL + 'log-time-sheet/get-count-log';
-        return this.http.get(url, {headers}).toPromise().then(res => res.json());
+    sendGetCountLogTimeSheet(selectedField, value_filter) {
+        if (selectedField === 'All') {
+            const url = URL + 'log-time-sheet/get-count-log';
+            return this.http.get(url, {headers}).toPromise().then(res => res.json());
+        } else {
+            const url = URL + 'log-time-sheet/get-count-filter-log';
+            let a = {"field": selectedField, "value": value_filter};
+            const body = JSON.stringify( a);
+            return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+        }
     }
-    sendGetDataPagingLogTimeSheet(from, offset) {
-        const url = URL + 'log-time-sheet/get-data-paging';
-        let a = {"from":from, "offset": offset};
-        const body = JSON.stringify( a);
-        return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+    sendGetDataPagingLogTimeSheet(from, offset, selectedField, value_filter) {
+       if (selectedField === 'All') {
+           const url = URL + 'log-time-sheet/get-data-paging';
+           let a = {"from":from, "offset": offset};
+           const body = JSON.stringify( a);
+           return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+       } else {
+            const url = URL + 'log-time-sheet/log-time-sheet-filter';
+            let a = {"field": selectedField, "value": value_filter, "index_of_page": from, "pageSize": offset};
+            const body = JSON.stringify(a);
+            return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+       }
     }
 
-    sendGetDataPagingUsers(from, offset){
-        const url = URL + 'user/get-data-user-paging';
-        let a = { "from": from, "offset": offset};
-        const body = JSON.stringify( a);
-        return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+    sendGetDataPagingUsers(from, offset, selectedField, value_filter) {
+       if (selectedField === 'All') {
+           const url = URL + 'user/get-data-user-paging';
+           let a = { "from": from, "offset": offset};
+           const body = JSON.stringify( a);
+           return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+       } else {
+           const url = URL + 'user/user-filter';
+           let a = {"field": selectedField, "value": value_filter, "index_of_page": from, "pageSize": offset};
+           const body = JSON.stringify(a);
+           return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+       }
     }
 
-    sendGetCountUsers(){
-        const url = URL + 'user/get-count-users';
-        return this.http.get(url, {headers}).toPromise().then(res => res.json());
+    sendGetCountUsers(selectedField, value_filter) {
+       if ( selectedField === 'All' ) {
+           const url = URL + 'user/get-count-users';
+           return this.http.get(url, {headers}).toPromise().then(res => res.json());
+       } else {
+           const url = URL + 'user/get-count-filter-user';
+           let a = {"field": selectedField, "value": value_filter};
+           const body = JSON.stringify( a);
+           return this.http.post(url, body, {headers}).toPromise().then(res => res.json());
+       }
     }
 }
