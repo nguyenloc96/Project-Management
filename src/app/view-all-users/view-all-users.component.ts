@@ -19,14 +19,14 @@ export class ViewAllUsersComponent implements OnInit {
     this.appService.sendGetCountUsers().then(result => {
         this.counts = result;
     });
-    this.getDataPaging(0, this.numberItemsPage);
+    this.getDataPaging(1, this.numberItemsPage);
   }
 
   ngOnInit() {
   }
 
     pageChanged($event) {
-        this.getDataPaging($event * this.numberItemsPage - this.numberItemsPage, this.numberItemsPage);
+        this.getDataPaging($event, this.numberItemsPage);
     }
     getDataPaging(from, offset) {
         this.appService.sendGetDataPagingUsers(from, offset).then(result => {

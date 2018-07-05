@@ -9,9 +9,13 @@ import {AppService} from '../app.service';
     providers: [AppService]
 })
 export class ViewAllNotesComponent implements OnInit {
+
   listAllNotes = [];
   numberItemsPage = 5;
   countsItem = 0;
+  selectField: string;
+  field = ['Username', 'ProjectName', 'Role', 'Type', 'Hours'];
+
   constructor(
       private appService: AppService,
       private router: Router
@@ -19,14 +23,14 @@ export class ViewAllNotesComponent implements OnInit {
     this.appService.sendGetCountLogTimeSheet().then(result => {
       this.countsItem = result;
     });
-    this.getDataPaging(0, this.numberItemsPage);
+    this.getDataPaging(1, this.numberItemsPage);
   }
 
   ngOnInit() {
   }
 
     pageChanged($event) {
-        this.getDataPaging($event * this.numberItemsPage - this.numberItemsPage, this.numberItemsPage);
+        this.getDataPaging($event, this.numberItemsPage);
     }
     getDataPaging(from, offset) {
       this.appService.sendGetDataPagingLogTimeSheet(from, offset).then(result => {
@@ -34,6 +38,11 @@ export class ViewAllNotesComponent implements OnInit {
               return [key, result[key]];
           });
           this.listAllNotes = arr3;
-      })
+      });
+    }
+
+    onSubmit(form_filter) {
+      form_filter.value.index_of_page = 1;
+
     }
 }
