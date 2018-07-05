@@ -26,19 +26,69 @@
         <h3>View all notes</h3>
       </div>
       <div class="card-body">
+        <form #formProjectFilter="ngForm" (ngSubmit)="onSubmit(formProjectFilter);">
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-4 form-control-sm">
+                <label for="name-field">Field</label>
+
+              </div>
+              <div class="col-md-4 form-control-sm">
+                <label for="value-filter">Value</label>
+
+
+              </div>
+
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 form-control-sm">
+                <select
+
+                        class="custom-select"
+                        id="name-field"
+                        [(ngModel)]="selectField"
+                        name="field"
+
+                >
+                  <option
+                          *ngFor="let item of field"
+                          [value]="item"
+                  >
+                    {{item}}
+                  </option>
+                </select>
+
+              </div>
+              <div class="col-md-4 form-control-sm">
+                <input
+                        class="form-control"
+                        id="value-filter"
+                        placeholder="Enter Filter value"
+                        name="name"
+                        #txtNameProject="ngModel"
+                        ngModel
+                        required
+                >
+              </div>
+              <div class="col-md-4 form-control-sm">
+                <button class="btn btn-primary btn-danger" type="submit">Filter</button>
+              </div>
+            </div>
+          </div>
+        </form>
         <div class="row justify-content-around">
           <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
             <thead class="text-center">
             <tr>
-              <td>#</td>
-              <td scope="col">ID Note</td>
-              <td scope="col">Name Project</td>
-              <td scope="col">Role</td>
-              <td scope="col">Type</td>
-              <td scope="col">Hours</td>
-              <td scope="col">Date</td>
-              <td scope="col">Username</td>
-              <td scope="col">Description</td>
+              <td><strong>#</strong></td>
+              <td scope="col"><strong>ID Note</strong></td>
+              <td scope="col"><strong>Name Project</strong></td>
+              <td scope="col"><strong>Role</strong></td>
+              <td scope="col"><strong>Type</strong></td>
+              <td scope="col"><strong>Hours</strong></td>
+              <td scope="col"><strong>Date</strong></td>
+              <td scope="col"><strong>Username</strong></td>
+              <td scope="col"><strong>Description</strong></td>
             </tr>
             </thead>
             <tbody>

@@ -46,14 +46,14 @@ export class GetAllProjectComponent implements OnInit {
 
     ngOnInit() {
     }
-    onSubmit(form){
+    onSubmit(form) {
       form.value.index_of_page = 1;
       this.appService.sendProjectFilter(form.value).then(result =>{
         var arr = Object.keys(result).map(function(key) {
           return [Number(key), result[key]];
          });
          this.listProjects = arr;
-      })
+      });
     }
     onClick(index){
       if(index !== 0 && index <= this.maxpage ){ 
