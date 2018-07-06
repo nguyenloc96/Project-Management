@@ -155,4 +155,10 @@ export class AppService {
         const url = URL + 'user/get-count-users';
         return this.http.get(url, {headers}).toPromise().then(res => res.json());
     }
+    sendPostProjectFilterPage(value){
+        const url = URL + 'get-project-filter-number';
+        const body = JSON.stringify(value);
+        return this.http.post(url,body, { headers })
+        .toPromise().then(res => res.json())
+    }
 }

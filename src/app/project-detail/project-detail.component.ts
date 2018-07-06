@@ -31,7 +31,7 @@ export class ProjectDetailComponent implements OnInit {
     }
     
     onClick(){
-        
+        alert(this.listUser);
     }
 
     ngOnInit() {}
