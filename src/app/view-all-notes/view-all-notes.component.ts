@@ -13,27 +13,28 @@ export class ViewAllNotesComponent implements OnInit {
   listAllNotes = [];
   numberItemsPage = 5;
   countsItem = 0;
-  selectField: string;
-  field = ['Username', 'ProjectName', 'Role', 'Type', 'Hours'];
+  selectField = 'All';
+  value_filter = '';
+  field = ['All', 'username', 'projectName', 'role', 'type', 'hours'];
 
   constructor(
       private appService: AppService,
       private router: Router
   ) {
-    this.appService.sendGetCountLogTimeSheet().then(result => {
+    this.appService.sendGetCountLogTimeSheet(this.selectField, this.value_filter.trim()).then(result => {
       this.countsItem = result;
     });
-    this.getDataPaging(1, this.numberItemsPage);
+    this.getDataPaging(1, this.numberItemsPage, this.selectField, this.value_filter.trim());
   }
 
   ngOnInit() {
   }
 
     pageChanged($event) {
-        this.getDataPaging($event, this.numberItemsPage);
+        this.getDataPaging($event, this.numberItemsPage, this.selectField, this.value_filter.trim());
     }
-    getDataPaging(from, offset) {
-      this.appService.sendGetDataPagingLogTimeSheet(from, offset).then(result => {
+    getDataPaging(from, offset, selectedField, value_filter) {
+      this.appService.sendGetDataPagingLogTimeSheet(from, offset, selectedField, value_filter).then(result => {
           var arr3 = Object.keys(result).map(function(key) {
               return [key, result[key]];
           });
@@ -42,7 +43,11 @@ export class ViewAllNotesComponent implements OnInit {
     }
 
     onSubmit(form_filter) {
-      form_filter.value.index_of_page = 1;
-
+      this.listAllNotes = [];
+      this.countsItem = 0;
+      this.appService.sendGetCountLogTimeSheet(this.selectField, this.value_filter.trim()).then(result => {
+        this.countsItem = result;
+      });
+      this.getDataPaging(1, this.numberItemsPage, this.selectField, this.value_filter.trim());
     }
 }

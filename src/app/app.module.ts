@@ -45,21 +45,10 @@ import { ProjectFilterComponent } from './project-filter/project-filter.componen
         UserCreateNoteComponent,
         NoteProjectComponent,
         UserProjectDetailComponent,
-
-        ViewAllNotesComponent,
         ViewAllUsersComponent,
-
-        GetAllProjectComponent,
-        ViewAllNotesComponent,
-
-
-        ViewAllNotesComponent,
-        ViewAllUsersComponent,
-
         GetAllProjectComponent,
         ViewAllNotesComponent,
         ProjectFilterComponent
-
 
     ],
     imports: [

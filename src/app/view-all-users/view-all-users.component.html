@@ -26,15 +26,59 @@
         <h3>View all users</h3>
       </div>
       <div class="card-body">
+        <form #formProjectFilter="ngForm" (ngSubmit)="onSubmit(formProjectFilter);">
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-4 form-control-sm">
+                <label for="name-field">Field</label>
+
+              </div>
+              <div class="col-md-4 form-control-sm">
+                <label for="value-filter">Value</label>
+
+
+              </div>
+
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 form-control-sm">
+                <select class="form-control"
+                        id="name-field"
+                        [(ngModel)]="selectField"
+                        name="filterSelected">
+                  <option *ngFor="let item of field" [value]="item.value">
+                    {{item.name}}
+                  </option>
+                </select>
+
+              </div>
+              <div class="col-md-4 form-control-sm">
+                <input
+                        class="form-control"
+                        id="value-filter"
+                        placeholder="Enter Filter value"
+                        name="value_filter"
+                        [(ngModel)] = "value_filter"
+                        #txtValueFilter="ngModel"
+                        ngModel
+                        required
+                >
+              </div>
+              <div class="col-md-4 form-control-sm">
+                <button class="btn btn-primary btn-danger" type="submit">Filter</button>
+              </div>
+            </div>
+          </div>
+        </form>
         <div class="row justify-content-around">
           <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
             <thead class="text-center">
             <tr>
-              <td>#</td>
-              <td scope="col">ID User</td>
-              <td scope="col">Username</td>
-              <td scope="col">Role</td>
-              <td scope="col">Job</td>
+              <td><strong>#</strong></td>
+              <td scope="col"><strong>ID User</strong></td>
+              <td scope="col"><strong>UserName</strong></td>
+              <td scope="col"><strong>Role</strong></td>
+              <td scope="col"><strong>Job</strong></td>
             </tr>
             </thead>
             <tbody>
