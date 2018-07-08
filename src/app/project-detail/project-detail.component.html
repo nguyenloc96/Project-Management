@@ -21,29 +21,128 @@
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
-                    <thead class="text-center">
+                     <thead >
                         <tr>
-                            <td scope="col">ID</td>
-                            <td scope="col">Name Project</td>
-                            <td scope="col">Name PM</td>
-                            <td scope="col">Name Customer</td>
-                            <td scope="col">Name Technology</td>
-                            <td scope="col">Description</td>
-                            <td scope="col">Status</td>
-                            <td scope="col">Notes</td>
-                            <td scope="col">User in the project</td>
+                            <td scope="col" style="width:25%;">ID</td>
+                            <td scope="col" style="width:75%;">{{projectDetail.project_id}}</td>                           
                         </tr>
-                    </thead>
+                    </thead> 
                     <tbody>
-                        <tr class="text-center">
-                            <td scope="row">{{projectDetail.id}}</td>
+                        <tr>
+                            <td >Name Project</td>
                             <td>{{projectDetail.projectName}}</td>
+                        </tr>
+                        <tr>
+                            <td >Name PM</td>
                             <td>{{projectDetail.pm}}</td>
+                        </tr>
+                        <tr> 
+                            <td >Name Customer</td>
                             <td>{{projectDetail.customer}}</td>
-                            <td>{{projectDetail.technology}}</td>
-                            <td>{{projectDetail.description}}</td>
-                            <td>{{projectDetail.status}}</td>
-                            <td>{{projectDetail.notes}}</td>
+                        </tr>
+                        <tr>
+                                <td >Name Technology</td>
+                                <td>{{projectDetail.technology}}</td>
+                        </tr>
+                        <tr>
+                                <td >Description</td>
+                                <td>{{projectDetail.description}}</td>
+                        </tr>
+                        <tr>
+                                <td >Status</td>
+                                <td>{{projectDetail.status}}</td>
+                        </tr>
+                        <tr>
+                                <td >Notes</td>
+                                <td>{{projectDetail.notes}}</td>
+                        </tr>
+                        <tr>
+                                <td >User in the project</td>
+                                <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click) = "getUserlist(index)" >list users</button>
+                                <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#enfprojectModal" style="margin-left: 20px;" >end project</button>    
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">user list</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                     <table class="table table-bordered table-hover table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <td scope="col">users</td>
+                                                                <td scope="col">action</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor = "let list of listUser|paginate: {
+                                                                itemsPerPage: items,
+                                                                currentPage: p,
+                                                                totalItems: maxpage }">
+                                                                <td>{{list.username}}</td>
+                                                                <td><button>kick</button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    
+                                                    <pagination-controls
+                                                        (pageChange)="pageChanged(p=$event)"
+                                                        autoHide="false">
+                                                    </pagination-controls> 
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="AddUser();">Add user</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                <div class="modal fade" id="enfprojectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">End Project</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form #formEndProject="ngForm">
+                                                <div class="form-group">
+                                                    <div class="form-row">
+                                                        <label for="email">status</label>
+                                                        <select class="form-control" id="status" name="status"  ngModel>
+                                                            <option value = "success">success</option>
+                                                            <option value = "fail">fail</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label for="email">notes</label>
+                                                        <textarea class="form-control" id="notes" type="text"  name="notes"  ngModel></textarea>
+                                                    </div>
+                                                    <br>
+                                                    <div>
+                                                            
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                               <button class="btn btn-secondary" data-dismiss="modal" type="submit" (click) = "setEndProject(formEndProject);" >Ok</button>
+                                        
+                                        </div> 
+                                        </div>
+                                    </div>
+                                    </div>  
+                                </td> 
+                        </tr>
+                        <!-- </tr> 
                             <td>
                                 <!--<i class="fas fa-edit icon-edit text-primary"></i>
                                 <i class="fas fa-trash-alt icon-delete text-danger"></i>-->
@@ -52,30 +151,9 @@
                                     <li>{{user.username}}</li>
                                 </ul>
                                 -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >check users</button>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                    <ul *ngFor="let user of listUser">
-                                                            {{user.username}}
-                                                        </ul>
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                              <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                            </td>
-                        </tr>
+                                
+                            <!-- </td>
+                        </tr> --> 
                     </tbody>
                 </table>
             </div>

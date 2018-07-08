@@ -33,8 +33,9 @@ export class AppService {
     }
 
     sendGetProjects(){
-        const url = URL + 'get-projects';
-        return this.http.get(url, { headers })
+        const url = URL + 'get-project';
+  
+        return this.http.post(url, { headers })
         .toPromise()
         .then(res => res.json())
     }
@@ -188,5 +189,29 @@ export class AppService {
         const body = JSON.stringify(value);
         return this.http.post(url,body, { headers })
         .toPromise().then(res => res.json())
+    }
+
+    sendEndProject(value){
+        const url = URL + 'end-project';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+
+    sendRemoveUser(value){
+        const url = URL + 'end-project';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+    
+    sendProjectDetailUserList(value){
+        const url = URL + 'project-detail-user-list';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
     }
 }

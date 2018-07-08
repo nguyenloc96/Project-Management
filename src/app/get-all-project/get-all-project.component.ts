@@ -16,7 +16,7 @@ export class GetAllProjectComponent implements OnInit {
   index_of_page = 1;
   numberItemsPage =10;
   filter = false;
-  form = {field:String,name:String};
+  form = {field:"PM",name:"",index_of_page:1};
   //counts = 0;
   fields = [
     "project_id",
@@ -41,13 +41,19 @@ export class GetAllProjectComponent implements OnInit {
         //     this.listProjects = arr;
         // })
         //.catch(error => console.log(error))
-        this.appService.sendProjectPage()
+        this.form.field = localStorage.getItem('field');
+        this.form.name = localStorage.getItem('name');
+        this.setLocalStorage();
+
+        this.appService.sendProjectFilter(this.form)
         .then(result =>{
-            this.maxpage = result.number;
-            console.log(this.maxpage);
+          var arr = Object.keys(result).map(function(key) {
+            return [Number(key), result[key]];
+          })
+          this.listProjects = arr;
         }).catch(error => console.log(error))
-
-
+        
+        this.setMaxpage();
         this.getDataPaging(1);
        
       
@@ -56,9 +62,31 @@ export class GetAllProjectComponent implements OnInit {
 
     ngOnInit() {
     }
+    setMaxpage(){
+      this.appService.sendPostProjectFilterPage(this.form).then(result => {
+        this.maxpage = result.number;
+      }).catch(error => console.log(error));
+
+    }
+    setLocalStorage(){
+      localStorage.setItem('field',this.form.field);
+      localStorage.setItem('name',this.form.name);
+
+    }
     onSubmit(form) {
-      localStorage.setItem('field',form.value.field);
-      localStorage.setItem('name',form.value.name);
+      this.form.field = form.value.field;
+      this.form.name = form.value.name.trim();
+      //alert(JSON.stringify(this.form));
+      //this.setLocalStorage();
+      this.setMaxpage();
+      this.appService.sendProjectFilter(this.form).then(result => {
+        var arr = Object.keys(result).map(function(key) {
+          return [Number(key), result[key]];
+        })
+        this.listProjects = arr;
+      }).catch(error => console.log(error)) 
+      //localStorage.setItem('field',form.value.field);
+      //localStorage.setItem('name',form.value.name);
     //  form.value.index_of_page = index;
       // this.form.field = form.value.field;
       // this.form.name = form.value.name;
@@ -77,7 +105,7 @@ export class GetAllProjectComponent implements OnInit {
       // this.appService.sendPostProjectFilterPage(form.value).then(result =>{
       //   this.maxpage = result.number;
       // })
-      this.router.navigate(['/project-filter']);
+//this.router.navigate(['/project-filter']);
     }
 
     pageChanged($event) {
@@ -86,7 +114,8 @@ export class GetAllProjectComponent implements OnInit {
      
 
     getDataPaging(index_of_page) {
-      this.appService.sendGetAllProjects({"index_of_page":index_of_page}).then(result => {
+      this.form.index_of_page = index_of_page;
+      this.appService.sendProjectFilter(this.form).then(result => {
         var arr = Object.keys(result).map(function(key) {
           return [Number(key), result[key]];
         })
