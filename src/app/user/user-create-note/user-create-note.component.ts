@@ -18,12 +18,14 @@ export class UserCreateNoteComponent implements OnInit {
         private appService: AppService,
         private router: Router
     ) {
-        this.appService.sendGetProjects()
-            .then(listProject => {
-                var arr = Object.keys(listProject).map(function (key) {
-                    return [Number(key), listProject[key]];
-                });
-                this.listProjects = arr;
+        this.appService.sendUserProjects(
+            {
+                'user_id': localStorage.getItem('user_id')
+            }
+        )
+            .then(result => {
+                console.log(result);
+                this.listProjects = result;
             })
             .catch(error => console.log(error))
     }

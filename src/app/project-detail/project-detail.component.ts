@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../app.service';
+import {Directive} from '@angular/core';
 
 @Component({
     selector: 'app-project-detail',
     templateUrl: './project-detail.component.html',
     styleUrls: ['./project-detail.component.css'],
     providers: [AppService]
+
 })
 export class ProjectDetailComponent implements OnInit {
     projectDetail = [];
     listUser = [];
     removeUser = {'project_id':"",'user_id':""};
+    removelist =[];
     value = {'project_id':"",'status':"",'notes':""};
     projectID;
     items = 10;
@@ -64,18 +67,28 @@ export class ProjectDetailComponent implements OnInit {
             var arr = Object.keys(result).map(function(key) {
                 return [key, result[key]];
             });
+            
             this.listUser = arr[1][1];
             this.maxpage = arr[2][1];
             
         })
-        console.log(this.maxpage);
+       
     }
+
     KickUser(uid){
+    
+ 
         this.removeUser.project_id = this.route.snapshot.paramMap.get('id');
         this.removeUser.user_id = uid;
-        this.appService.sendRemoveUser(this.removeUser).then(result =>{
+        this.removelist[0] = this.removeUser;
+      //  console.log(JSON.stringify(this.removelist));
+        this.appService.sendRemoveUser(this.removelist).then(result =>{
             console.log(result);
         });
+    }
+    pageChanged(index){
+        
+        this.getUserlist(index);
     }
     ngOnInit() {}
 }

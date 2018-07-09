@@ -17,9 +17,9 @@
             <li class="breadcrumb-item active">
 
                 <a routerLink="/get-all-project">All Project</a>
-
-                <a routerLink="/view-all-notes">View all notes</a>
-
+            </li>
+            <li class="breadcrumb-item active">
+             <a routerLink="/view-all-notes">View all notes</a>
             </li>
             <li class="breadcrumb-item active">
                 <a routerLink="/view-all-users">View all users</a>
@@ -30,60 +30,48 @@
                 <h3>Project Management</h3>
             </div>
             <div class="card-body">
-                <div class="row justify-content-around">
-
-                    <table class="table table-bordered table-hover table-sm">
-                        <thead>
-                            <tr>
-                                <td scope="col">#</td>
-                                <td scope="col">Name Project</td>
-                                <td> Choose button </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor = "let list of listProjects">
-                                <td id="{{list[1].project_id}}"></td>
-                                <td>{{list[1].projectName}}</td>
-                                <td>
-                                    <div class="row justify-content-center">
-                                        <div class="col-4 text-right">
-                                            <button 
-                                                class="btn btn-success" 
-                                                type="button"
-                                                routerLink="/project-detail/{{list[1].project_id}}"
-                                            >View project information</button>
-                                        </div>
-                                        <div class="col-4">
-                                            <button 
-                                                class="btn btn-primary" 
-                                                type="button"
-                                                routerLink="/add-user"
-                                            >Add user to the project</button>
-                                        </div>
-                                        <div class="col-4 text-left">
-                                            <button 
-                                                class="btn btn-info" 
-                                                type="button"
-                                                routerLink="/note-project/{{list[1].project_id}}"
-                                            >View notes information </button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                          </nav>
-
+                <!-- <div class="row justify-content-around">
+                    <p>Tổng số dự án: {{NumberOfProject}}</p>
                 </div>
+                <div class="row justify-content-around">
+                    <p>Tổng số dự án đang hoạt động: {{NumberOfRunningProject}}</p>
+                </div>
+                <div class="row justify-content-around">
+                    <p>Tổng số dự án thành công: {{NumberOfSuccessProject}}</p>
+                </div>
+                <div class="row justify-content-around">
+                    <p>Tổng số dự án thất bại: {{NumberOfFailedProject}}</p>
+                </div> -->
+               <div class = "container">
+                    <div>
+                        <div class="row ">
+                            <div class="col text-center">
+                                <i class ="fas fa-users fa-5x"></i>
+                                <br>
+                                <h2>{{NumberOfUser}}</h2>
+                                <small>Members</small>
+                            </div>
+                            <div class="col text-center">
+                                <i class="fas fa-trophy fa-5x"></i>
+                                <br>
+                                <h2>{{NumberOfProject}}</h2>
+                                <small>Projects</small>
+                            </div>
+                            <div class="col text-center">
+                                <i class ="far fa-clock fa-5x"></i>
+                                <br>
+                                <h2>{{NumberOfHours}}</h2>
+                                <small>Working Hours</small> 
+                            </div>
+                        
+                        </div>
+                    </div>
+               </div>     
+            </div>
+            <div class="card-body">
+
             </div>
         </div>
+        <div class="card add-user"></div>
     </div>
 </div>
