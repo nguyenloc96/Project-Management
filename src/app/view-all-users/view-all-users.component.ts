@@ -17,7 +17,7 @@ export class ViewAllUsersComponent implements OnInit {
     field = [{"name":"All", "value":"All"},
         {"name":"ID User", "value":"user_id"},
         {"name":"UserName", "value":"username"},
-        {"name":"Role", "value":"role"},
+       
         {"name":"Job", "value":"job"}];
 
   constructor(

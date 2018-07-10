@@ -57,15 +57,7 @@ body.sticky-footer .content-wrapper {
     margin-top: 4.3rem;
 }
 
-table tbody {
-    counter-reset: no;
-}
-table tbody tr{
-    counter-increment: no;
-}
-table tbody tr td:first-child:before{ 
-    content: counter(no);
-}
+
 table tr td{
     vertical-align: middle;
 }

@@ -21,7 +21,7 @@ export class CreateNoteComponent implements OnInit {
         private appService: AppService,
         private router: Router 
     ) { 
-        this.appService.sendGetProjects()
+        this.appService.sendGetAll()
         .then(listProject => {
             var arr = Object.keys(listProject).map(function(key) {
                 return [Number(key), listProject[key]];

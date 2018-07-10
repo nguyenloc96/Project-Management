@@ -1,60 +1,121 @@
 <app-user-dashboard></app-user-dashboard>
 <div class="content-wrapper">
-  <div class="container-fluid">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a routerLink="/user"> Dashboard </a>
-      </li>
-      <li class="breadcrumb-item">
-        <a routerLink="/user/user-projects"> View all projects </a>
-      </li>
-      <li class="breadcrumb-item">
-        <a routerLink="/user/user-notes"> View all notes </a>
-      </li>
-      <li class="breadcrumb-item active">
-        Create Notes
-      </li>
-    </ol>
-    <div class="card add-user">
-      <div class="card-header text-center">
-        <h3> Information Project </h3>
-      </div>
-      <div class="card-body">
-        <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
-          <thead class="text-center">
-            <tr>
-              <td scope="col">ID</td>
-              <td scope="col">Name Project</td>
-              <td scope="col">Name PM</td>
-              <td scope="col">Name Customer</td>
-              <td scope="col">Name Technology</td>
-              <td scope="col">Description</td>
-              <td scope="col">status</td>
-              <td scope="col">notes</td>
-              <td scope="col">User in the project</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="text-center">
-              <td scope="row">{{projectDetail.id}}</td>
-              <td>{{projectDetail.projectName}}</td>
-              <td>{{projectDetail.pm}}</td>
-              <td>{{projectDetail.customer}}</td>
-              <td>{{projectDetail.technology}}</td>
-              <td>{{projectDetail.description}}</td>
-              <td>{{projectDetail.status}}</td>
-              <td>{{projectDetail.notes}}</td>
-              <td>
-                <!--<i class="fas fa-edit icon-edit text-primary"></i>
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/my-dashboard">My Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/create-project"> Create Project</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/create-note">Create Notes</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a routerLink="/add-user">Add user to the project</a>
+            </li>
+        </ol>
+        <div class="card add-user">
+            <div class="card-header text-center">
+                <h3> Information Project </h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover table-responsive-sm table-sm table-project">
+                    <thead>
+                        <tr>
+                            <td scope="col" style="width:25%;">ID</td>
+                            <td scope="col" style="width:75%;">{{projectDetail.project_id}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name Project</td>
+                            <td>{{projectDetail.projectName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Name PM</td>
+                            <td>{{projectDetail.pm}}</td>
+                        </tr>
+                        <tr>
+                            <td>Name Customer</td>
+                            <td>{{projectDetail.customer}}</td>
+                        </tr>
+                        <tr>
+                            <td>Name Technology</td>
+                            <td>{{projectDetail.technology}}</td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>{{projectDetail.description}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>{{projectDetail.status}}</td>
+                        </tr>
+                        <tr>
+                            <td>Notes</td>
+                            <td>{{projectDetail.notes}}</td>
+                        </tr>
+                        <tr>
+                            <td>User in the project</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="getUserlist(index)">list users</button>
+                                
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">user list</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table table-bordered table-hover table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <td scope="col">users</td>
+                                                           
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let list of listUser|paginate: {
+                                                                itemsPerPage: items,
+                                                                currentPage: p,
+                                                                totalItems: maxpage }">
+                                                            <td>{{list.username}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <pagination-controls (pageChange)="pageChanged(p=$event)" autoHide="false">
+                                                </pagination-controls>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            
+                            </td>
+                        </tr>
+                        <!-- </tr> 
+                            <td>
+                                <!--<i class="fas fa-edit icon-edit text-primary"></i>
                                 <i class="fas fa-trash-alt icon-delete text-danger"></i>-->
-                <ul *ngFor="let user of listUser">
-                  <li>{{user.username}}</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                        <!--
+                                <ul *ngFor="let user of listUser">
+                                    <li>{{user.username}}</li>
+                                </ul>
+                                -->
+
+                        <!-- </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
