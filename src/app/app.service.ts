@@ -123,7 +123,12 @@ export class AppService {
         .toPromise()
         .then(res => res.json())
     }
-
+    sendGetAll(){
+        const url = URL + 'getAll';
+        return this.http.get(url, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
     sendProjectFilter(value){
         const url = URL + 'project-filter';
         const body = JSON.stringify(value);
