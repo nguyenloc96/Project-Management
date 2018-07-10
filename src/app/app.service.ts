@@ -34,7 +34,6 @@ export class AppService {
 
     sendGetProjects(){
         const url = URL + 'get-project';
-  
         return this.http.post(url, { headers })
         .toPromise()
         .then(res => res.json())
@@ -205,7 +204,7 @@ export class AppService {
     }
 
     sendRemoveUser(value){
-        const url = URL + 'end-project';
+        const url = URL + 'remove-user';
         const body = JSON.stringify(value);
         return this.http.post(url, body, { headers })
         .toPromise()
@@ -216,6 +215,25 @@ export class AppService {
         const url = URL + 'project-detail-user-list';
         const body = JSON.stringify(value);
         return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+    sendCountProjectRunning(value){
+        const url = URL + 'count-project-running';
+        const body = JSON.stringify(value);
+        return this.http.post(url, body, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+    sendUserMultiProject(){
+        const url = URL + 'user-multi-project';
+        return this.http.get(url, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
+    sendGetUserPage(){
+        const url = URL + 'get-user-pages';
+        return this.http.get(url, { headers })
         .toPromise()
         .then(res => res.json())
     }

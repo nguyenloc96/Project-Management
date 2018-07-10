@@ -84,7 +84,7 @@
                                                                 currentPage: p,
                                                                 totalItems: maxpage }">
                                                                 <td>{{list.username}}</td>
-                                                                <td><button>kick</button></td>
+                                                                <td><button class="btn btn-danger" type ="button" (click)="KickUser(list.id)">kick</button></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
