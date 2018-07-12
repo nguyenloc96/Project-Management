@@ -49,7 +49,7 @@ export class CreateProjectComponent implements OnInit {
             console.log(result);
              if(result.status == true){
                  alert('Bạn đã tạo mới project thành công.');
-                 this.router.navigate(['add-user']);
+                 this.router.navigate(['add-user',result.projectInfo.project_id]);
              }
              else{
                  alert('Dự án chưa được tạo. Bạn hãy thử lại.');

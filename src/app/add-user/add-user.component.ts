@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import { Router } from '@angular/router';
+import {  ActivatedRoute,Router } from '@angular/router';
 
 @Component({
     selector: 'app-add-user',
@@ -10,10 +10,28 @@ import { Router } from '@angular/router';
 export class AddUserComponent implements OnInit {
     listProjects = [];
     listUsers = [];
+    pid;
     constructor(
+        private route: ActivatedRoute,
         private appService: AppService,
         private router: Router
+
     ) {
+        // if(this.route.snapshot.paramMap.get('id')!== null){
+        //     this.pid = this.route.snapshot.paramMap.get('id');
+        //     this.appService.sendProjectDetail({"project_id":this.pid}).then(result =>{
+        //         var arr = Object.keys(result).map(function(key) {
+        //             return [Number(key), result[key]];
+        //         });
+        //         this.listProjects = arr[0][1];
+        //     }); 
+        //     this.appService.sendGetUsers()
+        //     .then(listUser => {
+        //         this.listUsers = listUser;
+        //     })
+        //     .catch(error => console.log(error));
+        // }
+       // else{
         this.appService.sendGetAll()
             .then(listProject => {
                 var arr = Object.keys(listProject).map(function(key) {
@@ -28,6 +46,7 @@ export class AddUserComponent implements OnInit {
                 this.listUsers = listUser;
             })
             .catch(error => console.log(error))
+      //  }
     }
     
     selectProject: number;

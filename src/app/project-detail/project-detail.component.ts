@@ -13,7 +13,7 @@ import {Directive} from '@angular/core';
 export class ProjectDetailComponent implements OnInit {
     projectDetail = [];
     listUser = [];
-    removeUser = {'project_id':"",'user_id':""};
+    removeUser = {'project_ID':"",'user_ID':""};
     removelist =[];
     value = {'project_id':"",'status':"",'notes':""};
     projectID;
@@ -78,8 +78,8 @@ export class ProjectDetailComponent implements OnInit {
     KickUser(uid){
     
  
-        this.removeUser.project_id = this.route.snapshot.paramMap.get('id');
-        this.removeUser.user_id = uid;
+        this.removeUser.project_ID = this.route.snapshot.paramMap.get('id');
+        this.removeUser.user_ID = uid;
         this.removelist[0] = this.removeUser;
       //  console.log(JSON.stringify(this.removelist));
         this.appService.sendRemoveUser(this.removelist).then(result =>{

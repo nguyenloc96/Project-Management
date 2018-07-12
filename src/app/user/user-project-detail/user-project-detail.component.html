@@ -60,7 +60,7 @@
                             <td>User in the project</td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="getUserlist(index)">list users</button>
-                                
+                                <button [disabled]="!isPmUser()" type="button" class="btn btn-danger"  data-toggle="modal" data-target="#enfprojectModal" style="margin-left: 20px;" >end project</button>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -75,7 +75,7 @@
                                                     <thead>
                                                         <tr>
                                                             <td scope="col">users</td>
-                                                           
+                                                            <td scope="col">action</td>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -84,6 +84,7 @@
                                                                 currentPage: p,
                                                                 totalItems: maxpage }">
                                                             <td>{{list.username}}</td>
+                                                            <td><button [disabled]="!isPmUser()" class="btn btn-danger" type ="button" (click)="KickUser(list.id)">kick</button></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -98,7 +99,47 @@
                                     </div>
                                 </div>
 
-                            
+                                <div class="modal fade" id="enfprojectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">End Project</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form #formEndProject="ngForm">
+                                                <div class="form-group">
+                                                    <div class="form-row">
+                                                        <label for="email">status</label>
+                                                        <select class="form-control" id="status" name="status"  ngModel>
+                                                            <option value = "success">success</option>
+                                                            <option value = "fail">fail</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label for="email">notes</label>
+                                                        <textarea class="form-control" id="notes" type="text"  name="notes"  ngModel></textarea>
+                                                    </div>
+                                                    <br>
+                                                    <div>
+                                                            
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                               <button class="btn btn-secondary" data-dismiss="modal" type="submit" (click) = "setEndProject(formEndProject);" >Ok</button>
+                                        
+                                        </div> 
+                                        </div>
+                                    </div>
+                                    </div>  
+
+
+
                             </td>
                         </tr>
                         <!-- </tr> 

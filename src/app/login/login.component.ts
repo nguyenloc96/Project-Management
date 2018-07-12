@@ -15,10 +15,10 @@ export class LoginComponent implements OnInit {
         private appService: AppService,
         private router: Router
     ) {
-
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+    }
 
 
 
@@ -32,10 +32,7 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('user_id', result.profile.id + '');
                     localStorage.setItem('user_name', result.profile.username);
                     localStorage.setItem('role', result.profile.role);
-                    
                     this.massage = 'Bạn đã đăng nhập thành công';
-
-                    
                     setTimeout(() => {
                         this.className = '';
                         if (result.profile.role === "ROLE_ADMIN") {

@@ -29,6 +29,7 @@ const routes: Routes = [
     { path: 'create-project', component: CreateProjectComponent },
     { path: 'create-note', component: CreateNoteComponent },
     { path: 'add-user', component: AddUserComponent },
+    { path: 'add-user/:id', component: AddUserComponent },
     { path: 'show-project', component: ShowProjectComponent },
     { path: 'show-user', component: ShowUserComponent },
     { path: 'note-project/:id', component: NoteProjectComponent },

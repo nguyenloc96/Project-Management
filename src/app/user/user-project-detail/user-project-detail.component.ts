@@ -13,8 +13,10 @@ export class UserProjectDetailComponent implements OnInit {
     listUser = [];
     projectID;
     items = 10;
+    removeUser = {'project_ID':"",'user_ID':""};
+    removelist =[];
     maxpage = 0;
-
+    isPM = false;
     constructor(
         private route: ActivatedRoute,
         private appService: AppService
@@ -22,7 +24,8 @@ export class UserProjectDetailComponent implements OnInit {
         const id = {
             "project_id": +this.route.snapshot.paramMap.get('id')
         };
-
+        if(localStorage.getItem("role")==='ROLE_PM') this.isPM = true;
+        else this.isPM = false;
         this.appService.sendProjectDetail(id)
             .then(result => {
                 var arr = Object.keys(result).map(function (key) {
@@ -46,9 +49,22 @@ export class UserProjectDetailComponent implements OnInit {
         })
        
     }
+    KickUser(uid){
+    
+ 
+        this.removeUser.project_ID = this.route.snapshot.paramMap.get('id');
+        this.removeUser.user_ID = uid;
+        this.removelist[0] = this.removeUser;
+      //  console.log(JSON.stringify(this.removelist));
+        this.appService.sendRemoveUser(this.removelist).then(result =>{
+            console.log(result);
+        });
+    }
     pageChanged(index){
-        
         this.getUserlist(index);
+    }
+    isPmUser(){
+        return this.isPM;
     }
     ngOnInit() { }
 }

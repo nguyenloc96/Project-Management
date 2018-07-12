@@ -237,4 +237,11 @@ export class AppService {
         .toPromise()
         .then(res => res.json())
     }
+    
+    sendGetSumHours(){
+        const url = URL + 'log-time-sheet/get-sum-hours';
+        return this.http.get(url, { headers })
+        .toPromise()
+        .then(res => res.json())
+    }
 }

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserDashboardComponent implements OnInit {
     user:string;
     constructor() {
+        console.log(localStorage.getItem('token_user'));
         this.user = localStorage.getItem('user_name');
     }
 
