@@ -13,12 +13,12 @@ export class ViewAllUsersComponent implements OnInit {
   numberItemsPage = 10;
   counts = 0;
   selectField = 'All';
-    value_filter = '';
-    field = [{"name":"All", "value":"All"},
-        {"name":"ID User", "value":"user_id"},
-        {"name":"UserName", "value":"username"},
-       
-        {"name":"Job", "value":"job"}];
+  value_filter = '';
+  field = [{"name":"All", "value":"All"},
+      {"name":"ID User", "value":"id"},
+      {"name":"UserName", "value":"username"},
+      
+      {"name":"Job", "value":"job"}];
 
   constructor(
       private appService: AppService,

@@ -25,6 +25,8 @@ import { ViewAllNotesComponent } from './view-all-notes/view-all-notes.component
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
 import { ProjectFilterComponent } from './project-filter/project-filter.component';
+import { UserSearchScreenComponent } from './user/user-search-screen/user-search-screen.component';
+import { UserMainScreenComponent } from './user/user-main-screen/user-main-screen.component';
 
 @NgModule({
     declarations: [
@@ -48,7 +50,9 @@ import { ProjectFilterComponent } from './project-filter/project-filter.componen
         ViewAllUsersComponent,
         GetAllProjectComponent,
         ViewAllNotesComponent,
-        ProjectFilterComponent
+        ProjectFilterComponent,
+        UserSearchScreenComponent,
+        UserMainScreenComponent
 
     ],
     imports: [

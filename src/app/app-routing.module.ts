@@ -10,7 +10,7 @@ import { ShowProjectComponent } from './show-project/show-project.component';
 import { ShowUserComponent } from './show-user/show-user.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { NoteProjectComponent } from './note-project/note-project.component';
-
+import {UserMainScreenComponent} from './user/user-main-screen/user-main-screen.component';
 import { UserProjectsComponent } from '../app/user/user-projects/user-projects.component';
 import { UserNotesComponent } from '../app/user/user-notes/user-notes.component';
 import { UserDashboardComponent } from '../app/user/user-dashboard/user-dashboard.component';
@@ -34,7 +34,7 @@ const routes: Routes = [
     { path: 'show-user', component: ShowUserComponent },
     { path: 'note-project/:id', component: NoteProjectComponent },
     { path: 'project-detail/:id', component: ProjectDetailComponent },
-    { path: 'user', component: UserDashboardComponent },
+    { path: 'user', component: UserMainScreenComponent },
     { path: 'user/user-projects', component: UserProjectsComponent },
     { path: 'user/user-notes', component: UserNotesComponent },
     { path: 'user/user-create-note', component: UserCreateNoteComponent },
@@ -42,9 +42,8 @@ const routes: Routes = [
     { path: 'project-filter', component: ProjectFilterComponent},
     { path: 'view-all-notes', component: ViewAllNotesComponent},
     { path: 'view-all-users', component: ViewAllUsersComponent},
-
+    { path: 'user/user-mains-creen', component: UserMainScreenComponent},
     { path: 'get-all-project', component: GetAllProjectComponent},
-    { path: 'view-all-notes', component: ViewAllNotesComponent},
 
 
 
